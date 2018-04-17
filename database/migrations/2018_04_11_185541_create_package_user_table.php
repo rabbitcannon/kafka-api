@@ -23,6 +23,8 @@ class CreatePackageUserTable extends Migration
                 ->references('id')
                 ->on('users');
         });
+
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
