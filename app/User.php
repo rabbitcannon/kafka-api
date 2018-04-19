@@ -16,7 +16,7 @@ class User extends Authenticatable
      */
     protected $fillable =
     [
-        'name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password',
     ];
 
     /**
@@ -32,5 +32,34 @@ class User extends Authenticatable
     public function packages()
     {
         return $this->belongsToMany('App\Package');
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profile() {
+        return $this->hasOne('App\Profile');
+    }
+
+    /**
+     * @param $name
+     */
+    public function setFirstNameAttribute($name)  {
+        $this->attributes['first_name'] = ucwords($name);
+    }
+
+    /**
+     * @param $name
+     */
+    public function setLastNameAttribute($name) {
+        $this->attributes['last_name'] = ucwords($name);
+    }
+
+    /**
+     * @param $email
+     */
+    public function setEmailAttribute($email) {
+        $this->attributes['email'] = strtolower($email);
     }
 }

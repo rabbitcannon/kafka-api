@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePackageUserTable extends Migration
+class CreateProfileTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreatePackageUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('package_user', function (Blueprint $table) {
-            $table->unsignedInteger('package_id')->index();
-            $table->unsignedInteger('user_id')->index();
+        Schema::create('profiles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->string('phone', 10);
+            $table->timestamps();
         });
 
-        Schema::table('package_user', function (Blueprint $table) {
-            $table->foreign('package_id')->references('id')->on('packages');
+        Schema::table('profiles', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
@@ -32,7 +33,7 @@ class CreatePackageUserTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('package_user');
+        Schema::dropIfExists('profiles');
         Schema::enableForeignKeyConstraints();
     }
 }

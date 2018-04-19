@@ -21,4 +21,8 @@ Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
+Route::group(['prefix' => 'profile'], function() {
+    Route::get('/', 'ProfileController@view');
+});
+
 

@@ -10388,6 +10388,15 @@ a.text-dark:focus {
   }
 }
 
+/**
+  Table of Contents
+  ------------------------
+  UC01 - Overall Page Elements
+**/
+
+/** UC01 Overall Page Elements
+ ===================== **/
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -10397,5 +10406,30 @@ a.text-dark:focus {
 h6 {
   font-size: 1rem;
   font-weight: bold;
+}
+
+/**
+  Table of Contents
+  ------------------------
+  UC01 - Container Layout
+**/
+
+/** UC01 Container Layout
+ ===================== **/
+
+.container.\--section {
+  margin-bottom: 30px;
+  padding: 7px 5px;
+}
+
+.container.\--section .__content {
+  background-color: #fff;
+  border: 1px solid #CCC;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.container.\--section .__content div.input-container {
+  margin-left: 7px;
 }
 

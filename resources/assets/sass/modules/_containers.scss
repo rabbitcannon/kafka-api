@@ -1,0 +1,36 @@
+/**
+  Table of Contents
+  ------------------------
+  UC01 - Container Layout
+**/
+
+
+/** UC01 Container Layout
+ ===================== **/
+
+.container {
+  &.--section {
+    margin-bottom: 30px;
+    padding: 7px 5px;
+
+    //.__header {
+    //
+    //}
+
+    .__content {
+      background-color: #fff;
+      border: 1px solid #CCC;
+      padding: 10px 15px;
+
+      @include border-radius(5px);
+
+      div.input-container {
+        margin-left: 7px;
+      }
+    }
+  }
+
+  //.__footer {
+  //
+  //}
+}
