@@ -47375,6 +47375,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -47392,6 +47417,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             loading: false
         };
     },
+
+
+    methods: {
+        addSubscription: function addSubscription() {
+            $('#subscribe-btn').html('<img src="images/loader_x14w.svg"/> Saving...');
+
+            setTimeout(function () {
+                alert("Test");
+            }, 1500);
+        }
+    },
+
     created: function created() {
         var _this = this;
 
@@ -47534,195 +47571,224 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.addSubscription($event)
+        }
+      }
+    },
     [
-      _c("table-header"),
-      _vm._v(" "),
-      _vm._l(_vm.services, function(service) {
-        return _c(
+      _c("div", { staticClass: "container --section" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
           "div",
-          { staticClass: "row", staticStyle: { padding: "5px 0" } },
+          { staticClass: "__content" },
           [
-            _c("div", { staticClass: "col-md-3" }, [
-              _c("div", { staticClass: "form-check" }, [
-                _c("input", {
-                  staticClass: "form-check-input",
-                  attrs: { type: "checkbox", id: "service_" + service.id }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  {
-                    staticClass: "form-check-label",
-                    attrs: { for: "service_" + service.id }
-                  },
-                  [_vm._v(_vm._s(service.name))]
-                )
-              ])
-            ]),
+            _c("table-header"),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c("div", { staticClass: "input-container" }, [
-                _c("div", { staticClass: "form-check d-inline" }, [
-                  _c("input", {
-                    staticClass: "form-check-input",
-                    attrs: { type: "checkbox", id: "debug_" + service.id }
-                  }),
+            _vm._l(_vm.services, function(service) {
+              return _c(
+                "div",
+                { staticClass: "row", staticStyle: { padding: "5px 0" } },
+                [
+                  _c("div", { staticClass: "col-md-3" }, [
+                    _c("div", { staticClass: "form-check" }, [
+                      _c("input", {
+                        staticClass: "form-check-input",
+                        attrs: { type: "checkbox", id: "service_" + service.id }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "label",
+                        {
+                          staticClass: "form-check-label",
+                          attrs: { for: "service_" + service.id }
+                        },
+                        [_vm._v(_vm._s(service.name))]
+                      )
+                    ])
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "form-check-label",
-                      attrs: { for: "debug_" + service.id }
-                    },
-                    [_vm._v("Debug")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-check d-inline" }, [
-                  _c("input", {
-                    staticClass: "form-check-input",
-                    attrs: { type: "checkbox", id: "warning_" + service.id }
-                  }),
+                  _c("div", { staticClass: "col-md-3" }, [
+                    _c("div", { staticClass: "input-container" }, [
+                      _c("div", { staticClass: "form-check d-inline" }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: { type: "checkbox", id: "debug_" + service.id }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "debug_" + service.id }
+                          },
+                          [_vm._v("Debug")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-check d-inline" }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "warning_" + service.id
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "warning_" + service.id }
+                          },
+                          [_vm._v("Warning")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-check d-inline" }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "critical_" + service.id
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "critical_" + service.id }
+                          },
+                          [_vm._v("Critical+")]
+                        )
+                      ])
+                    ])
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "form-check-label",
-                      attrs: { for: "warning_" + service.id }
-                    },
-                    [_vm._v("Warning")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-check d-inline" }, [
-                  _c("input", {
-                    staticClass: "form-check-input",
-                    attrs: { type: "checkbox", id: "critical_" + service.id }
-                  }),
+                  _c("div", { staticClass: "col-md-3" }, [
+                    _c("div", { staticClass: "input-container" }, [
+                      _c("div", { staticClass: "form-check d-inline" }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: { type: "checkbox", id: "email_" + service.id }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "email_" + service.id }
+                          },
+                          [_vm._v("Email")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-check d-inline" }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: { type: "checkbox", id: "push_" + service.id }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "push_" + service.id }
+                          },
+                          [_vm._v("Push")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-check d-inline" }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: { type: "checkbox", id: "sms_" + service.id }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "sms_" + service.id }
+                          },
+                          [_vm._v("SMS")]
+                        )
+                      ])
+                    ])
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "form-check-label",
-                      attrs: { for: "critical_" + service.id }
-                    },
-                    [_vm._v("Critical+")]
-                  )
-                ])
-              ])
-            ]),
+                  _c("div", { staticClass: "col-md-3" }, [
+                    _c("div", { staticClass: "input-container" }, [
+                      _c("div", { staticClass: "form-check d-inline" }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: { type: "checkbox", id: "all_" + service.id }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "all_" + service.id }
+                          },
+                          [_vm._v("All Alerts")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-check d-inline" }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: {
+                            type: "checkbox",
+                            id: "hourly_" + service.id
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "hourly_" + service.id }
+                          },
+                          [_vm._v("Hourly")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-check d-inline" }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: { type: "checkbox", id: "daily_" + service.id }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "label",
+                          {
+                            staticClass: "form-check-label",
+                            attrs: { for: "daily_alert_" + service.id }
+                          },
+                          [_vm._v("Daily")]
+                        )
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c("div", { staticClass: "input-container" }, [
-                _c("div", { staticClass: "form-check d-inline" }, [
-                  _c("input", {
-                    staticClass: "form-check-input",
-                    attrs: { type: "checkbox", id: "email_" + service.id }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "form-check-label",
-                      attrs: { for: "email_" + service.id }
-                    },
-                    [_vm._v("Email")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-check d-inline" }, [
-                  _c("input", {
-                    staticClass: "form-check-input",
-                    attrs: { type: "checkbox", id: "push_" + service.id }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "form-check-label",
-                      attrs: { for: "push_" + service.id }
-                    },
-                    [_vm._v("Push")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-check d-inline" }, [
-                  _c("input", {
-                    staticClass: "form-check-input",
-                    attrs: { type: "checkbox", id: "sms_" + service.id }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "form-check-label",
-                      attrs: { for: "sms_" + service.id }
-                    },
-                    [_vm._v("SMS")]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-md-3" }, [
-              _c("div", { staticClass: "input-container" }, [
-                _c("div", { staticClass: "form-check d-inline" }, [
-                  _c("input", {
-                    staticClass: "form-check-input",
-                    attrs: { type: "checkbox", id: "all_" + service.id }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "form-check-label",
-                      attrs: { for: "all_" + service.id }
-                    },
-                    [_vm._v("All Alerts")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-check d-inline" }, [
-                  _c("input", {
-                    staticClass: "form-check-input",
-                    attrs: { type: "checkbox", id: "hourly_" + service.id }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "form-check-label",
-                      attrs: { for: "hourly_" + service.id }
-                    },
-                    [_vm._v("Hourly")]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-check d-inline" }, [
-                  _c("input", {
-                    staticClass: "form-check-input",
-                    attrs: { type: "checkbox", id: "daily_" + service.id }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "form-check-label",
-                      attrs: { for: "daily_alert_" + service.id }
-                    },
-                    [_vm._v("Daily")]
-                  )
-                ])
-              ])
-            ])
-          ]
+            _vm.loading ? _c("div", [_vm._m(1)]) : _vm._e()
+          ],
+          2
         )
-      }),
+      ]),
       _vm._v(" "),
-      _vm.loading ? _c("div", [_vm._m(0)]) : _vm._e()
-    ],
-    2
+      _vm._m(2)
+    ]
   )
 }
 var staticRenderFns = [
@@ -47730,9 +47796,49 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "__header" }, [
+      _c("div", [_c("h2", [_vm._v("Subscriber Dashboard")])]),
+      _vm._v(" "),
+      _c("div", [_c("h4", [_vm._v("EOS Service Alerts")])])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12 text-center" }, [
         _c("img", { attrs: { src: "images/loader_x64.svg" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container --section" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { staticClass: "float-right" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary btn-sm",
+                attrs: { type: "submit", id: "subscribe-btn" }
+              },
+              [_vm._v("Subscribe")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary btn-sm",
+                attrs: { type: "button" }
+              },
+              [_vm._v("Cancel")]
+            )
+          ])
+        ])
       ])
     ])
   }
@@ -47853,6 +47959,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -47868,6 +47996,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             loading: true
         };
     },
+
+
+    methods: {
+        modifyTopics: function modifyTopics() {
+            $('#topics-btn').html('<img src="images/loader_x14w.svg"/> Saving...');
+
+            setTimeout(function () {
+                alert('test topics');
+            }, 1500);
+        }
+    },
+
     created: function created() {
         // this.loading = true;
         // Axios.get(`/api/services/all`).then(response => {
@@ -47994,15 +48134,44 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _vm.loading ? _c("div", [_vm._m(2)]) : _vm._e()
-  ])
+  return _c(
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.modifyTopics($event)
+        }
+      }
+    },
+    [
+      _c("div", { staticClass: "container --section" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "__content" }, [
+          _c("div", { staticClass: "row" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _vm.loading ? _c("div", [_vm._m(3)]) : _vm._e(),
+            _vm._v(" "),
+            _vm._m(4)
+          ])
+        ])
+      ])
+    ]
+  )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "__header" }, [
+      _c("h4", [_vm._v("Kafka Topic Subscriptions")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -48126,6 +48295,36 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12 text-center" }, [
         _c("img", { attrs: { src: "images/loader_x64.svg" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "container --section" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { staticClass: "float-right" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary btn-sm",
+                attrs: { type: "submit", id: "topics-btn" }
+              },
+              [_vm._v("Add")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary btn-sm",
+                attrs: { type: "button" }
+              },
+              [_vm._v("Cancel")]
+            )
+          ])
+        ])
       ])
     ])
   }
