@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
          $this->call(ServiceSeeder::class);
          $this->call(AlertTypeSeeder::class);
          $this->call(AlertFrequencySeeder::class);
+         $this->call(AlertMethodSeeder::class);
     }
 }

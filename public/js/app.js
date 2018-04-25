@@ -14092,7 +14092,7 @@ if (token) {
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.5';
+  var VERSION = '4.17.10';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -14516,6 +14516,14 @@ if (token) {
   /** Used to access faster Node.js helpers. */
   var nodeUtil = (function() {
     try {
+      // Use `util.types` for Node.js 10+.
+      var types = freeModule && freeModule.require && freeModule.require('util').types;
+
+      if (types) {
+        return types;
+      }
+
+      // Legacy `process.binding('util')` for Node.js < 10.
       return freeProcess && freeProcess.binding && freeProcess.binding('util');
     } catch (e) {}
   }());
@@ -46990,7 +46998,9 @@ module.exports = Vue;
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var scope = self || window;
+/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
+            (typeof self !== "undefined" && self) ||
+            window;
 var apply = Function.prototype.apply;
 
 // DOM APIs, for completeness
@@ -47042,7 +47052,7 @@ exports._unrefActive = exports.active = function(item) {
 
 // setimmediate attaches itself to the global object
 __webpack_require__(39);
-// On some exotic environments, it's not clear which object `setimmeidate` was
+// On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
 exports.setImmediate = (typeof self !== "undefined" && self.setImmediate) ||
@@ -47273,7 +47283,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/notifications/ServiceAlerts.vue"
+Component.options.__file = "resources/assets/js/components/services/Alerts.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47282,9 +47292,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4b8b6844", Component.options)
+    hotAPI.createRecord("data-v-501e18c1", Component.options)
   } else {
-    hotAPI.reload("data-v-4b8b6844", Component.options)
+    hotAPI.reload("data-v-501e18c1", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47386,20 +47396,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -47414,6 +47410,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             services: [],
+            alert_types: [],
+            alert_methods: [],
+            alert_frequencies: [],
             loading: false
         };
     },
@@ -47423,9 +47422,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         addSubscription: function addSubscription() {
             $('#subscribe-btn').html('<img src="images/loader_x14w.svg"/> Saving...');
 
-            setTimeout(function () {
-                alert("Test");
-            }, 1500);
+            // setTimeout(function() {
+            //     alert("Test");
+            // }, 1500);
+            var serviceDivs = $("div[name='service_row']");
+            // var serviceDivs = $("div[name='service_row'] .form-check input:checked");
+            serviceDivs.each(function () {
+                var $row = $(this).attr('id');
+                var subscription = [];
+
+                $('#' + $row).each(function () {
+                    // selected.push($(this).attr('name'));
+                    var checkbox = $(this).find('input[type=checkbox]:checked');
+                    checkbox.each(function () {
+                        subscription.push($(this).attr('id'));
+                    });
+
+                    console.log(subscription);
+                    // $("input[type=checkbox]:checked").each(function () {
+                    //     subscription.push($(this).attr('id'));
+                    // });
+                    //
+                    // console.log(subscription);
+                    // subscription = [];
+                });
+                //     $("input[type=checkbox]").each(function () {
+                //         subscription.push($(this).attr('id'));
+                //     });
+                //     console.log(subscription);
+                //     subscription = [];
+            });
+        },
+        getServices: function getServices() {
+            return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/services/all');
+        },
+        getAlertTypes: function getAlertTypes() {
+            return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/alerts/types');
+        },
+        getAlertMethods: function getAlertMethods() {
+            return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/alerts/methods');
+        },
+        getAlertFrequency: function getAlertFrequency() {
+            return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/alerts/frequency');
         }
     },
 
@@ -47433,12 +47471,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this = this;
 
         this.loading = true;
-        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/services/all').then(function (response) {
-            _this.services = response.data.data;
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.all([this.getServices(), this.getAlertTypes(), this.getAlertMethods(), this.getAlertFrequency()]).then(__WEBPACK_IMPORTED_MODULE_0_axios___default.a.spread(function (servicesResults, alertTypeResults, alertMethodsResults, alertFrequencyResults) {
+            _this.services = servicesResults.data.data;
+            _this.alert_types = alertTypeResults.data.data;
+            _this.alert_methods = alertMethodsResults.data.data;
+            _this.alert_frequencies = alertFrequencyResults.data.data;
             _this.loading = false;
-        }).catch(function (e) {
-            _this.errors.push(e);
-        });
+        }));
     }
 });
 
@@ -47468,7 +47507,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/notifications/partials/Header.vue"
+Component.options.__file = "resources/assets/js/components/services/partials/Header.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47477,9 +47516,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-636e45c8", Component.options)
+    hotAPI.createRecord("data-v-21bf99a0", Component.options)
   } else {
-    hotAPI.reload("data-v-636e45c8", Component.options)
+    hotAPI.reload("data-v-21bf99a0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47558,7 +47597,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-636e45c8", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-21bf99a0", module.exports)
   }
 }
 
@@ -47573,6 +47612,11 @@ var render = function() {
   return _c(
     "form",
     {
+      attrs: {
+        id: "add-sub-form",
+        action: "/subscriptions/create",
+        method: "post"
+      },
       on: {
         submit: function($event) {
           $event.preventDefault()
@@ -47593,13 +47637,24 @@ var render = function() {
             _vm._l(_vm.services, function(service) {
               return _c(
                 "div",
-                { staticClass: "row", staticStyle: { padding: "5px 0" } },
+                {
+                  staticClass: "row",
+                  staticStyle: { padding: "5px 0" },
+                  attrs: {
+                    name: "service_row",
+                    id: "service-row-" + service.id
+                  }
+                },
                 [
                   _c("div", { staticClass: "col-md-3" }, [
                     _c("div", { staticClass: "form-check" }, [
                       _c("input", {
                         staticClass: "form-check-input",
-                        attrs: { type: "checkbox", id: "service_" + service.id }
+                        attrs: {
+                          type: "checkbox",
+                          name: "service[]",
+                          id: "service_" + service.id
+                        }
                       }),
                       _vm._v(" "),
                       _c(
@@ -47608,174 +47663,157 @@ var render = function() {
                           staticClass: "form-check-label",
                           attrs: { for: "service_" + service.id }
                         },
-                        [_vm._v(_vm._s(service.name))]
+                        [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(service.name) +
+                              "\n                        "
+                          )
+                        ]
                       )
                     ])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-3" }, [
-                    _c("div", { staticClass: "input-container" }, [
-                      _c("div", { staticClass: "form-check d-inline" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", id: "debug_" + service.id }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "debug_" + service.id }
-                          },
-                          [_vm._v("Debug")]
+                    _c(
+                      "div",
+                      { staticClass: "input-container" },
+                      _vm._l(_vm.alert_types, function(alert_type) {
+                        return _c(
+                          "div",
+                          { staticClass: "form-check d-inline" },
+                          [
+                            _c("input", {
+                              staticClass: "form-check-input",
+                              attrs: {
+                                type: "checkbox",
+                                name: "type[]",
+                                id:
+                                  alert_type.name.toLowerCase() +
+                                  "_" +
+                                  service.id
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "form-check-label",
+                                attrs: {
+                                  for:
+                                    alert_type.name.toLowerCase() +
+                                    "_" +
+                                    service.id
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(alert_type.name) +
+                                    " \n                            "
+                                )
+                              ]
+                            )
+                          ]
                         )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check d-inline" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "checkbox",
-                            id: "warning_" + service.id
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "warning_" + service.id }
-                          },
-                          [_vm._v("Warning")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check d-inline" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "checkbox",
-                            id: "critical_" + service.id
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "critical_" + service.id }
-                          },
-                          [_vm._v("Critical+")]
-                        )
-                      ])
-                    ])
+                      })
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-3" }, [
-                    _c("div", { staticClass: "input-container" }, [
-                      _c("div", { staticClass: "form-check d-inline" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", id: "email_" + service.id }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "email_" + service.id }
-                          },
-                          [_vm._v("Email")]
+                    _c(
+                      "div",
+                      { staticClass: "input-container" },
+                      _vm._l(_vm.alert_methods, function(alert_method) {
+                        return _c(
+                          "div",
+                          { staticClass: "form-check d-inline" },
+                          [
+                            _c("input", {
+                              staticClass: "form-check-input",
+                              attrs: {
+                                type: "checkbox",
+                                name: "method[]",
+                                id:
+                                  alert_method.name.toLowerCase() +
+                                  "_" +
+                                  service.id
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "form-check-label",
+                                attrs: {
+                                  for:
+                                    alert_method.name.toLowerCase() +
+                                    "_" +
+                                    service.id
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(alert_method.name) +
+                                    " \n                            "
+                                )
+                              ]
+                            )
+                          ]
                         )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check d-inline" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", id: "push_" + service.id }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "push_" + service.id }
-                          },
-                          [_vm._v("Push")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check d-inline" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", id: "sms_" + service.id }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "sms_" + service.id }
-                          },
-                          [_vm._v("SMS")]
-                        )
-                      ])
-                    ])
+                      })
+                    )
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-md-3" }, [
-                    _c("div", { staticClass: "input-container" }, [
-                      _c("div", { staticClass: "form-check d-inline" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", id: "all_" + service.id }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "all_" + service.id }
-                          },
-                          [_vm._v("All Alerts")]
+                    _c(
+                      "div",
+                      { staticClass: "input-container" },
+                      _vm._l(_vm.alert_frequencies, function(alert_frequency) {
+                        return _c(
+                          "div",
+                          { staticClass: "form-check d-inline" },
+                          [
+                            _c("input", {
+                              staticClass: "form-check-input",
+                              attrs: {
+                                type: "checkbox",
+                                name: "frequency[]",
+                                id:
+                                  alert_frequency.name
+                                    .toLowerCase()
+                                    .replace(/\s/g, "_") +
+                                  "_" +
+                                  service.id
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "label",
+                              {
+                                staticClass: "form-check-label",
+                                attrs: {
+                                  for:
+                                    alert_frequency.name
+                                      .toLowerCase()
+                                      .replace(/\s/g, "_") +
+                                    "_" +
+                                    service.id
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                " +
+                                    _vm._s(alert_frequency.name) +
+                                    " \n                            "
+                                )
+                              ]
+                            )
+                          ]
                         )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check d-inline" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: {
-                            type: "checkbox",
-                            id: "hourly_" + service.id
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "hourly_" + service.id }
-                          },
-                          [_vm._v("Hourly")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "form-check d-inline" }, [
-                        _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", id: "daily_" + service.id }
-                        }),
-                        _vm._v(" "),
-                        _c(
-                          "label",
-                          {
-                            staticClass: "form-check-label",
-                            attrs: { for: "daily_alert_" + service.id }
-                          },
-                          [_vm._v("Daily")]
-                        )
-                      ])
-                    ])
+                      })
+                    )
                   ])
                 ]
               )
@@ -47832,6 +47870,15 @@ var staticRenderFns = [
             _c(
               "button",
               {
+                staticClass: "btn btn-primary btn-sm",
+                attrs: { type: "submit", href: "/subscriptions/create" }
+              },
+              [_vm._v("Test Button")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
                 staticClass: "btn btn-secondary btn-sm",
                 attrs: { type: "button" }
               },
@@ -47848,7 +47895,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4b8b6844", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-501e18c1", module.exports)
   }
 }
 

@@ -15,7 +15,7 @@ window.Vue = require('vue');
  */
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('service-results', require('./components/notifications/ServiceAlerts.vue'));
+Vue.component('service-results', require('./components/services/Alerts.vue'));
 Vue.component('kafka-topics', require('./components/subscriptions/KafkaTopics.vue'));
 
 const app = new Vue({

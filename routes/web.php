@@ -21,8 +21,23 @@ Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
-Route::group(['middleware' => 'auth', 'prefix' => 'profile'], function() {
-    Route::get('/', 'ProfileController@view');
+
+/*
+ * Auth required routing.
+ */
+Route::group(['middleware' => 'auth'], function() {
+
+    /*
+     * Profile routes
+     */
+    Route::group(['prefix' => '/profile'], function() {
+        Route::get('/', 'ProfileController@view');
+    });
+
+    /*
+     * Subscription CRUD operations
+     */
+    Route::group(['prefix' => '/subscriptions'], function() {
+        Route::get('/create', 'SubscriptionController@create');
+    });
 });
-
-
