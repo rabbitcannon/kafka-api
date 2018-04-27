@@ -10417,6 +10417,13 @@ h6 {
 /** UC01 Container Layout
  ===================== **/
 
+.alert.error {
+  position: absolute;
+  margin-left: 29%;
+  margin-top: -116px;
+  z-index: 998;
+}
+
 .container.\--section {
   padding: 7px 5px;
 }

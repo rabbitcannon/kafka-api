@@ -1,6 +1,6 @@
 <template>
-    <form id="add-sub-form" v-on:submit.prevent="addSubscription" action="/subscriptions/create" method="post">
-    <!--<form action="/subscriptions/create" method="post">-->
+    <!--<form id="add-sub-form" v-on:submit.prevent="addSubscription" action="/subscriptions/create" method="post">-->
+    <form id="add-sub-form" action="/subscriptions/create" method="post">
         <div class="container --section">
             <div class="__header">
                 <div>
@@ -17,7 +17,7 @@
                 <div class="row" v-for="service of services" style="padding: 5px 0;" name="service_row" v-bind:id="'service-row-' + service.id">
                     <div class="col-md-3">
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" name="service[]" v-bind:id="'service_' + service.id">
+                            <input type="checkbox" v-validate="'required'" class="form-check-input" name="service[]" v-bind:id="'service_' + service.id">
                             <label class="form-check-label" :for="'service_' + service.id">
                                 {{ service.name }}
                             </label>
@@ -71,7 +71,6 @@
                 <div class="col-md-12">
                     <div class="float-right">
                         <button type="submit" class="btn btn-primary btn-sm" id="subscribe-btn">Subscribe</button>
-                        <button type="submit" href="/subscriptions/create" class="btn btn-primary btn-sm">Test Button</button>
                         <button type="button" class="btn btn-secondary btn-sm">Cancel</button>
                     </div>
                 </div>
@@ -83,12 +82,10 @@
 <script>
     import Axios from 'axios';
     import TableHeader from './partials/Header.vue';
-    // import Frequencies from './partials/Frequency.vue';
 
-    export default {
+	export default {
         components: {
             TableHeader,
-            // Frequencies,
         },
 
         data() {
@@ -97,17 +94,18 @@
                 alert_types: [],
                 alert_methods: [],
                 alert_frequencies: [],
-                loading: false
+                loading: false,
             }
         },
 
         methods: {
             addSubscription() {
                 $('#subscribe-btn').html('<img src="images/loader_x14w.svg"/> Saving...');
-                var serviceDivs = $("div[name='service_row']");
+                let serviceDivs = $("div[name='service_row']");
+				let subscriptionArray = [];
 
                 serviceDivs.each(function() {
-                    var $row = $(this).attr('id');
+                    let $row = $(this).attr('id');
                     let subscription = [];
 
                     $('#' + $row).each(function() {
@@ -115,11 +113,29 @@
                         checkbox.each(function() {
                             subscription.push($(this).attr('id'));
                         });
+                        if(subscription.length > 0) {
+							subscriptionArray.push(subscription);
+                        }
+					});
+				});
 
-                        console.log(subscription);
-                    });
-                });
-            },
+                if(subscriptionArray == undefined || subscriptionArray.length == 0) {
+					$('#subscribe-btn').html('Subscribe');
+					setTimeout(function(){
+						alert('No services set to monitor.');
+                    }, 1000)
+                }
+                else {
+					Axios.post('/subscriptions/create', {
+						data: subscriptionArray
+					}).then(function(response) {
+						// console.log(response.data);
+					}).catch(function(error) {
+						console.log(error);
+					});
+                }
+				console.log(subscriptionArray);
+			},
             getServices() {
                 return Axios.get('/api/services/all');
             },
@@ -135,7 +151,7 @@
         },
 
         created() {
-            this.loading = true;
+			this.loading = true;
             Axios.all([
                 this.getServices(), this.getAlertTypes(), this.getAlertMethods(), this.getAlertFrequency()
             ]).then(Axios.spread((servicesResults, alertTypeResults, alertMethodsResults, alertFrequencyResults) => {

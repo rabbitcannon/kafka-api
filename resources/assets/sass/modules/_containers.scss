@@ -8,6 +8,15 @@
 /** UC01 Container Layout
  ===================== **/
 
+.alert {
+  &.error {
+    position: absolute;
+    margin-left: 29%;
+    margin-top: -116px;
+    z-index: 998;
+  }
+}
+
 .container {
   &.--section {
     //margin-bottom: 30px;

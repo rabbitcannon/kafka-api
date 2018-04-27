@@ -17,9 +17,18 @@ class CreateSubscriptionsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('service_id')->unsigned();
-            $table->json('alert_types');
-            $table->json('alert_methods');
-            $table->json('alert_frequencies');
+//            $table->json('alert_types');
+//            $table->json('alert_methods');
+//            $table->json('alert_frequencies');
+            $table->boolean('debug')->default(0);
+            $table->boolean('warning')->default(0);
+            $table->boolean('critical')->default(0);
+            $table->boolean('email')->default(0);
+            $table->boolean('push')->default(0);
+            $table->boolean('sms')->default(0);
+            $table->boolean('alerts')->default(0);
+            $table->boolean('hourly')->default(0);
+            $table->boolean('daily')->default(0);
             $table->timestamps();
         });
 

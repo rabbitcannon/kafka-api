@@ -38,6 +38,6 @@ Route::group(['middleware' => 'auth'], function() {
      * Subscription CRUD operations
      */
     Route::group(['prefix' => '/subscriptions'], function() {
-        Route::get('/create', 'SubscriptionController@create');
+        Route::post('/create', 'SubscriptionController@create');
     });
 });

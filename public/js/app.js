@@ -47395,16 +47395,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
-// import Frequencies from './partials/Frequency.vue';
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
         TableHeader: __WEBPACK_IMPORTED_MODULE_1__partials_Header_vue___default.a
-        // Frequencies,
     },
 
     data: function data() {
@@ -47421,37 +47418,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         addSubscription: function addSubscription() {
             $('#subscribe-btn').html('<img src="images/loader_x14w.svg"/> Saving...');
-
-            // setTimeout(function() {
-            //     alert("Test");
-            // }, 1500);
             var serviceDivs = $("div[name='service_row']");
-            // var serviceDivs = $("div[name='service_row'] .form-check input:checked");
+            var subscriptionArray = [];
+
             serviceDivs.each(function () {
                 var $row = $(this).attr('id');
                 var subscription = [];
 
                 $('#' + $row).each(function () {
-                    // selected.push($(this).attr('name'));
                     var checkbox = $(this).find('input[type=checkbox]:checked');
                     checkbox.each(function () {
                         subscription.push($(this).attr('id'));
                     });
-
-                    console.log(subscription);
-                    // $("input[type=checkbox]:checked").each(function () {
-                    //     subscription.push($(this).attr('id'));
-                    // });
-                    //
-                    // console.log(subscription);
-                    // subscription = [];
+                    if (subscription.length > 0) {
+                        subscriptionArray.push(subscription);
+                    }
                 });
-                //     $("input[type=checkbox]").each(function () {
-                //         subscription.push($(this).attr('id'));
-                //     });
-                //     console.log(subscription);
-                //     subscription = [];
             });
+
+            if (subscriptionArray == undefined || subscriptionArray.length == 0) {
+                $('#subscribe-btn').html('Subscribe');
+                setTimeout(function () {
+                    alert('No services set to monitor.');
+                }, 1000);
+            } else {
+                __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/subscriptions/create', {
+                    data: subscriptionArray
+                }).then(function (response) {
+                    // console.log(response.data);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }
+            console.log(subscriptionArray);
         },
         getServices: function getServices() {
             return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/services/all');
@@ -47616,12 +47615,6 @@ var render = function() {
         id: "add-sub-form",
         action: "/subscriptions/create",
         method: "post"
-      },
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          return _vm.addSubscription($event)
-        }
       }
     },
     [
@@ -47649,6 +47642,14 @@ var render = function() {
                   _c("div", { staticClass: "col-md-3" }, [
                     _c("div", { staticClass: "form-check" }, [
                       _c("input", {
+                        directives: [
+                          {
+                            name: "validate",
+                            rawName: "v-validate",
+                            value: "required",
+                            expression: "'required'"
+                          }
+                        ],
                         staticClass: "form-check-input",
                         attrs: {
                           type: "checkbox",
@@ -47865,15 +47866,6 @@ var staticRenderFns = [
                 attrs: { type: "submit", id: "subscribe-btn" }
               },
               [_vm._v("Subscribe")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-primary btn-sm",
-                attrs: { type: "submit", href: "/subscriptions/create" }
-              },
-              [_vm._v("Test Button")]
             ),
             _vm._v(" "),
             _c(
