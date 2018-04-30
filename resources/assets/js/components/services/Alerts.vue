@@ -1,6 +1,5 @@
 <template>
-    <!--<form id="add-sub-form" v-on:submit.prevent="addSubscription" action="/subscriptions/create" method="post">-->
-    <form id="add-sub-form" action="/subscriptions/create" method="post">
+    <form id="add-sub-form" v-on:submit.prevent="addSubscription" action="/subscriptions/create" method="post">
         <div class="container --section">
             <div class="__header">
                 <div>
@@ -109,21 +108,24 @@
                     let subscription = [];
 
                     $('#' + $row).each(function() {
-                        let checkbox = $(this).find('input[type=checkbox]:checked');
-                        checkbox.each(function() {
-                            subscription.push($(this).attr('id'));
+                        $(this).find('input[type=checkbox]:checked').map(function() {
+                            $(this).each(function() {
+                                subscription.push($(this).attr('id'));
+                            });
+                            console.log(subscription);
                         });
-                        if(subscription.length > 0) {
-							subscriptionArray.push(subscription);
-                        }
 					});
-				});
+                    if(subscription.length > 0) {
+                        subscriptionArray.push(subscription);
+                    }
+                });
 
                 if(subscriptionArray == undefined || subscriptionArray.length == 0) {
 					$('#subscribe-btn').html('Subscribe');
-					setTimeout(function(){
+
+					setTimeout(function() {
 						alert('No services set to monitor.');
-                    }, 1000)
+                    }, 500)
                 }
                 else {
 					Axios.post('/subscriptions/create', {
@@ -134,8 +136,12 @@
 						console.log(error);
 					});
                 }
-				console.log(subscriptionArray);
 			},
+            checkboxToggler() {
+                if($('#service_1').attr('checked')) {
+                    alert('checked')
+                }
+            },
             getServices() {
                 return Axios.get('/api/services/all');
             },
@@ -151,6 +157,8 @@
         },
 
         created() {
+            this.checkboxToggler();
+
 			this.loading = true;
             Axios.all([
                 this.getServices(), this.getAlertTypes(), this.getAlertMethods(), this.getAlertFrequency()

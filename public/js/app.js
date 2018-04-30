@@ -47394,7 +47394,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -47426,21 +47425,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var subscription = [];
 
                 $('#' + $row).each(function () {
-                    var checkbox = $(this).find('input[type=checkbox]:checked');
-                    checkbox.each(function () {
-                        subscription.push($(this).attr('id'));
+                    $(this).find('input[type=checkbox]:checked').map(function () {
+                        $(this).each(function () {
+                            subscription.push($(this).attr('id'));
+                        });
+                        console.log(subscription);
                     });
-                    if (subscription.length > 0) {
-                        subscriptionArray.push(subscription);
-                    }
                 });
+                if (subscription.length > 0) {
+                    subscriptionArray.push(subscription);
+                }
             });
 
             if (subscriptionArray == undefined || subscriptionArray.length == 0) {
                 $('#subscribe-btn').html('Subscribe');
+
                 setTimeout(function () {
                     alert('No services set to monitor.');
-                }, 1000);
+                }, 500);
             } else {
                 __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/subscriptions/create', {
                     data: subscriptionArray
@@ -47450,7 +47452,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     console.log(error);
                 });
             }
-            console.log(subscriptionArray);
+        },
+        checkboxToggler: function checkboxToggler() {
+            if ($('#service_1').attr('checked')) {
+                alert('checked');
+            }
         },
         getServices: function getServices() {
             return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/services/all');
@@ -47468,6 +47474,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     created: function created() {
         var _this = this;
+
+        this.checkboxToggler();
 
         this.loading = true;
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.all([this.getServices(), this.getAlertTypes(), this.getAlertMethods(), this.getAlertFrequency()]).then(__WEBPACK_IMPORTED_MODULE_0_axios___default.a.spread(function (servicesResults, alertTypeResults, alertMethodsResults, alertFrequencyResults) {
@@ -47615,6 +47623,12 @@ var render = function() {
         id: "add-sub-form",
         action: "/subscriptions/create",
         method: "post"
+      },
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.addSubscription($event)
+        }
       }
     },
     [
