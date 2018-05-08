@@ -46,7 +46,7 @@
                         <div class="input-container">
                             <div class="form-check d-inline" v-for="alert_frequency of alert_frequencies">
                                 <input type="checkbox" class="form-check-input" name="frequency[]"
-                                       v-bind:id="alert_frequency.name.toLowerCase().replace(/\s/g,'_') + '_' + service.id">
+                                       v-bind:id="alert_frequency.name.toLowerCase().replace(/\s/g,'') + '_' + service.id">
                                 <label class="form-check-label" :for="alert_frequency.name.toLowerCase().replace(/\s/g,'_') + '_' + service.id">
                                     {{ alert_frequency.name }}&nbsp;
                                 </label>
@@ -80,11 +80,30 @@
 
 <script>
     import Axios from 'axios';
+    import Toastr from 'toastr';
+    import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
+    import { faCheck, faExclamationTriangle } from '@fortawesome/fontawesome-free-solid';
     import TableHeader from './partials/Header.vue';
 
+    Toastr.options.closeMethod = 'fadeOut';
+    Toastr.options.showMethod = 'fadeIn';
+    Toastr.options.closeDuration = 300;
+    Toastr.options.newestOnTop = false;
+    Toastr.options.closeButton = true;
+
 	export default {
+        computed: {
+            checkIcon() {
+                return faCheck
+            },
+            warningIcon() {
+                return faExclamationTriangle
+            }
+        },
+
         components: {
             TableHeader,
+            FontAwesomeIcon
         },
 
         data() {
@@ -99,7 +118,7 @@
 
         methods: {
             addSubscription() {
-                $('#subscribe-btn').html('<img src="images/loader_x14w.svg"/> Saving...');
+                $('button#subscribe-btn').html('<img src="images/loader_x14w.svg"/> Saving...');
                 let serviceDivs = $("div[name='service_row']");
 				let subscriptionArray = [];
 
@@ -112,36 +131,31 @@
                             $(this).each(function() {
                                 subscription.push($(this).attr('id'));
                             });
-                            console.log(subscription);
                         });
 					});
                     if(subscription.length > 0) {
                         subscriptionArray.push(subscription);
                     }
                 });
-
-                if(subscriptionArray == undefined || subscriptionArray.length == 0) {
+                console.log(subscriptionArray);
+                if(subscriptionArray === undefined || subscriptionArray.length === 0) {
 					$('#subscribe-btn').html('Subscribe');
 
 					setTimeout(function() {
-						alert('No services set to monitor.');
+                        Toastr.error("<font-awesome-icon :icon='faExclamationTriangle' /> You need to set subscription items.");
                     }, 500)
                 }
                 else {
 					Axios.post('/subscriptions/create', {
 						data: subscriptionArray
-					}).then(function(response) {
-						// console.log(response.data);
-					}).catch(function(error) {
+					}).then(() => {
+					    Toastr.success("<font-awesome-icon :icon='checkIcon' /> Subscription saved.");
+						$('form#add-sub-form').trigger('reset');
+					}).catch((error) => {
 						console.log(error);
 					});
                 }
 			},
-            checkboxToggler() {
-                if($('#service_1').attr('checked')) {
-                    alert('checked')
-                }
-            },
             getServices() {
                 return Axios.get('/api/services/all');
             },
@@ -157,8 +171,6 @@
         },
 
         created() {
-            this.checkboxToggler();
-
 			this.loading = true;
             Axios.all([
                 this.getServices(), this.getAlertTypes(), this.getAlertMethods(), this.getAlertFrequency()

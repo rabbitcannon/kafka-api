@@ -6,12 +6,12 @@
             </div>
 
             <div class="__content">
+                <table-header></table-header>
 
                 <div class="row">
                     <div class="col-md-3">
-                        <h6>Choose Kafka Topics:</h6>
 
-                        <div class="input-container">
+                        <div id="topics-unchecked" class="input-container">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Development</label>
@@ -36,9 +36,7 @@
                     </div>
 
                     <div class="col-md-9">
-                        <h6>Subscribed Topics</h6>
-
-                        <div class="input-container">
+                        <div id="topics-checked" class="input-container">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
                                 <label class="form-check-label" for="exampleCheck1">Dev Ops</label>
@@ -72,7 +70,7 @@
 
 <script>
     import Axios from 'axios';
-    import TableHeader from './partials/Header.vue';
+    import TableHeader from '../topics/partials/Header.vue';
 
     export default {
         components: {
@@ -90,7 +88,7 @@
             modifyTopics() {
                 $('#topics-btn').html('<img src="images/loader_x14w.svg"/> Saving...');
 
-                setTimeout(function() {
+                setTimeout(() => {
                     alert('test topics');
                 }, 1500);
             }

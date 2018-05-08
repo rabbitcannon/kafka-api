@@ -1,10 +1,11 @@
 <footer>
-    <script>
-        // $(window).on('load', function() {
-        //     $('#status').fadeOut();
-        //     $('#preloader').delay(350).fadeOut('slow');
-        //     $('#main-container').css('display', 'block');
-        //     $('body').delay(350).css({'overflow':'visible'});
-        // });
-    </script>
+    <div class="text-center">
+        Copyright &copy; {{ date('Y') }}
+    </div>
+
+    <div id="preloader">
+        <div id="status">
+            <img src="images/loader_x64.svg" alt="">
+        </div>
+    </div>
 </footer>

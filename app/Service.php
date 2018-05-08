@@ -14,5 +14,4 @@ class Service extends Model
     {
         return $this->belongsTo('App\Package');
     }
-
 }

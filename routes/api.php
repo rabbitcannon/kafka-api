@@ -4,7 +4,9 @@ use App\AlertFrequency;
 use App\AlertMethod;
 use App\AlertType;
 use App\Http\Resources\AlertMethodCollection;
+use App\Http\Resources\SubscriptionCollection;
 use App\Service;
+use App\Subscription;
 use Illuminate\Http\Request;
 use App\Http\Resources\AlertTypeCollection;
 use App\Http\Resources\ServiceCollection;
@@ -56,7 +58,7 @@ Route::group(['prefix' => 'services'], function() {
  * Subscriptions
  */
 Route::group(['prefix' => 'subscriptions'], function() {
-    Route::get('/list', function() {
-//        return new ServiceCollection(Service::all());
-    });
+//    Route::get('/list', function() {
+//        return new SubscriptionCollection(Subscription::all());
+//    });
 });

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row">
+        <div class="row border-bottom">
             <div class="col-md-3">
                 <h6>Service:</h6>
             </div>

@@ -1,0 +1,20 @@
+/**
+  Table of Contents
+  ------------------------
+  MI01 - Menu Nav Items
+**/
+
+
+/**MIC01 Container Layout
+ ===================== **/
+
+.nav-item {
+  a {
+    font-weight: 400;
+    color: #B2A48C !important;
+  }
+  &.end {
+    border-right: 1px solid #CCC;
+  }
+}
+

@@ -16,8 +16,19 @@ window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('service-results', require('./components/services/Alerts.vue'));
-Vue.component('kafka-topics', require('./components/subscriptions/KafkaTopics.vue'));
+Vue.component('kafka-topics', require('./components/topics/KafkaTopics.vue'));
+Vue.component('subscription-list', require('./components/subscriptions/ListCurrent.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+});
+
+/**
+ * Footer Script
+ */
+$(window).on('load', function() {
+    $('#status').fadeOut();
+    $('#preloader').delay(350).fadeOut('slow');
+    $('div#app').css('display', 'block');
+    $('body').delay(350).css({'overflow':'visible'});
 });

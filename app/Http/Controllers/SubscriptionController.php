@@ -22,37 +22,64 @@ class SubscriptionController extends Controller
         });
     }
 
-
     /**
      * @param Request $request
      */
-//    public function create(Request $request) {
     public function create(Request $request) {
-//        echo $this->user->id;
-//        $services = json_encode($request->all());
         $services = $request->all()['data'];
         $count = count($services);
-
-        var_dump($services);
-
-//        foreach($services as $service) {
-//            foreach($service as $key => $value) {
-//                echo $value . '<br />';
-//            }
-//        }
-//
-//        for ($i = 0; $i < $count; $i++) {
-//            foreach($services[$i] as $value) {
-//                echo $value;
-//            }
-//        }
-
         $current = 0;
+
         while($current < $count) {
+            $sub = new Subscription();
+            $sub->user_id = $this->user->id;
+
             foreach($services[$current] as $key => $value) {
-                echo $value;
+                $tag = substr($value, 0, strpos($value, "_"));
+                $tag_value = substr($value, strpos($value, "_") + 1);
+
+                switch($tag) {
+                    case "service":
+                        $sub->service_id = $tag_value;
+                        break;
+                    case "debug":
+                        $sub->debug = true;
+                        break;
+                    case "warning":
+                        $sub->warning = true;
+                        break;
+                    case "critical+":
+                        $sub->critical = true;
+                        break;
+                    case "email":
+                        $sub->email = true;
+                        break;
+                    case "push":
+                        $sub->push = true;
+                        break;
+                    case "sms":
+                        $sub->sms = true;
+                        break;
+                    case "allalerts":
+                        $sub->alerts= true;
+                        break;
+                    case "hourly":
+                        $sub->hourly = true;
+                        break;
+                    case "daily":
+                        $sub->daily = true;
+                        break;
+                }
             }
+            $sub->save();
             $current++;
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function listSubscriptions() {
+        return json_encode(Subscription::where('user_id', $this->user->id)->get());
     }
 }
