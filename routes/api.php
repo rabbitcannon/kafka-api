@@ -53,12 +53,3 @@ Route::group(['prefix' => 'services'], function() {
 //        return new AlertFrequencyCollection(AlertFrequency::all());
 //    });
 });
-
-/*
- * Subscriptions
- */
-Route::group(['prefix' => 'subscriptions'], function() {
-//    Route::get('/list', function() {
-//        return new SubscriptionCollection(Subscription::all());
-//    });
-});

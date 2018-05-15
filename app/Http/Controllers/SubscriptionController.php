@@ -76,6 +76,10 @@ class SubscriptionController extends Controller
         }
     }
 
+    public function delete($id) {
+        echo $id; die;
+    }
+
     /**
      * @return string
      */

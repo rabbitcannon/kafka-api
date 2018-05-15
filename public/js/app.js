@@ -20182,7 +20182,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /* unused harmony export faThumbsUp */
 /* unused harmony export faThumbtack */
 /* unused harmony export faTicketAlt */
-/* unused harmony export faTimes */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return faTimes; });
 /* unused harmony export faTimesCircle */
 /* unused harmony export faTint */
 /* unused harmony export faToggleOff */
@@ -20192,7 +20192,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /* unused harmony export faTransgender */
 /* unused harmony export faTransgenderAlt */
 /* unused harmony export faTrash */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return faTrashAlt; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return faTrashAlt; });
 /* unused harmony export faTree */
 /* unused harmony export faTrophy */
 /* unused harmony export faTruck */
@@ -69700,6 +69700,125 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -69727,7 +69846,10 @@ __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.options.closeButton = true;
             return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["c" /* faPencilAlt */];
         },
         deleteIcon: function deleteIcon() {
-            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["d" /* faTrashAlt */];
+            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["e" /* faTrashAlt */];
+        },
+        timesIcon: function timesIcon() {
+            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["d" /* faTimes */];
         }
     },
 
@@ -69740,12 +69862,27 @@ __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.options.closeButton = true;
         return {
             subs: [],
             loading: false,
-            noResults: false
+            noResults: false,
+            editing: false
         };
     },
 
 
     methods: {
+        editState: function editState(id) {
+            if (this.editing === false) {
+                this.editing = true;
+            } else {
+                this.editing = true;
+            }
+        },
+        deleteState: function deleteState(id) {
+            axios.post('/subscription/delete/' + id).then(function () {
+                toastr.success("<font-awesome-icon :icon='checkIcon' /> Subscription has been deleted.");
+            }).catch(function (error) {
+                toastr.error("<font-awesome-icon :icon='checkIcon' /> Error, please try again.");
+            });
+        },
         getSubscriptions: function getSubscriptions() {
             var _this = this;
 
@@ -69767,6 +69904,7 @@ __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.options.closeButton = true;
 
     created: function created() {
         this.getSubscriptions();
+        this.toggleEditingState();
     }
 });
 
@@ -70056,55 +70194,304 @@ var render = function() {
         _vm._m(1),
         _vm._v(" "),
         _vm.noResults
-          ? _c("div", { staticClass: "col-md-12 text-center" }, [
-              _c("div", { staticStyle: { padding: "20px 0" } }, [
-                _vm._v(
-                  "\n                You currently have no subscriptions.\n            "
-                )
-              ])
-            ])
+          ? _c("div", { staticClass: "row" }, [_vm._m(2)])
           : _vm._l(_vm.subs, function(sub) {
-              return _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("h5", [_vm._v(_vm._s(sub.service_id))]),
-                  _vm._v(
-                    " | Created on: " +
-                      _vm._s(_vm.parsedCreationDate(sub.created_at)) +
-                      "\n                "
-                  ),
-                  _c("div", [
-                    _c(
-                      "button",
-                      { staticClass: "btn btn-dark" },
-                      [
-                        _c("font-awesome-icon", {
-                          attrs: { icon: _vm.editIcon }
-                        }),
-                        _vm._v(" Edit\n                    ")
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      { staticClass: "btn btn-danger" },
-                      [
-                        _c("font-awesome-icon", {
-                          attrs: { icon: _vm.deleteIcon }
-                        }),
-                        _vm._v(" Delete\n                    ")
-                      ],
-                      1
-                    )
+              return _c(
+                "div",
+                { staticClass: "row", staticStyle: { padding: "12px 0" } },
+                [
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-12" }, [
+                        _c("div", { staticClass: "border-bottom" }, [
+                          _c("h5", [_vm._v(_vm._s(sub.service_id))]),
+                          _vm._v(" "),
+                          _c("small", { staticClass: "text-muted" }, [
+                            _vm._v(
+                              "Created on: " +
+                                _vm._s(_vm.parsedCreationDate(sub.created_at))
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "text-center",
+                            staticStyle: { padding: "10px 0" }
+                          },
+                          [
+                            _vm._m(3, true),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "row" }, [
+                              _c("div", { staticClass: "col" }, [
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col" }, [
+                                    sub.debug === 1
+                                      ? _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-success",
+                                              attrs: { icon: _vm.checkIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      : _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-danger",
+                                              attrs: { icon: _vm.timesIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col" }, [
+                                    sub.warning === 1
+                                      ? _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-success",
+                                              attrs: { icon: _vm.checkIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      : _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-danger",
+                                              attrs: { icon: _vm.timesIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col" }, [
+                                    sub.critical === 1
+                                      ? _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-success",
+                                              attrs: { icon: _vm.checkIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      : _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-danger",
+                                              attrs: { icon: _vm.timesIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col" }, [
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col" }, [
+                                    sub.email === 1
+                                      ? _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-success",
+                                              attrs: { icon: _vm.checkIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      : _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-danger",
+                                              attrs: { icon: _vm.timesIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col" }, [
+                                    sub.push === 1
+                                      ? _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-success",
+                                              attrs: { icon: _vm.checkIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      : _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-danger",
+                                              attrs: { icon: _vm.timesIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col" }, [
+                                    sub.sms === 1
+                                      ? _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-success",
+                                              attrs: { icon: _vm.checkIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      : _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-danger",
+                                              attrs: { icon: _vm.timesIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                  ])
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col" }, [
+                                _c("div", { staticClass: "row" }, [
+                                  _c("div", { staticClass: "col" }, [
+                                    sub.hourly === 1
+                                      ? _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-success",
+                                              attrs: { icon: _vm.checkIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      : _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-danger",
+                                              attrs: { icon: _vm.timesIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("div", { staticClass: "col" }, [
+                                    sub.daily === 1
+                                      ? _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-success",
+                                              attrs: { icon: _vm.checkIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                      : _c(
+                                          "span",
+                                          [
+                                            _c("font-awesome-icon", {
+                                              staticClass: "text-danger",
+                                              attrs: { icon: _vm.timesIcon }
+                                            })
+                                          ],
+                                          1
+                                        )
+                                  ])
+                                ])
+                              ])
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "border-top",
+                            staticStyle: { "padding-top": "12px" }
+                          },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-dark",
+                                attrs: { href: "/edit/" + sub.id },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    _vm.editState(sub.id)
+                                  }
+                                }
+                              },
+                              [
+                                _c("font-awesome-icon", {
+                                  attrs: { icon: _vm.editIcon }
+                                }),
+                                _vm._v(" Edit\n                            ")
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-danger",
+                                attrs: { href: "/delete/" + sub.id },
+                                on: {
+                                  click: function($event) {
+                                    $event.preventDefault()
+                                    _vm.deleteState(sub.id)
+                                  }
+                                }
+                              },
+                              [
+                                _c("font-awesome-icon", {
+                                  attrs: { icon: _vm.deleteIcon }
+                                }),
+                                _vm._v(" Delete\n                            ")
+                              ],
+                              1
+                            )
+                          ]
+                        )
+                      ])
+                    ])
                   ])
-                ])
-              ])
+                ]
+              )
             })
       ],
       2
     ),
     _vm._v(" "),
-    _vm.loading ? _c("div", [_vm._m(2)]) : _vm._e()
+    _vm.loading ? _c("div", [_vm._m(4)]) : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -70121,8 +70508,54 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row border-bottom" }, [
-      _c("div", { staticClass: "col-md-3" }, [
+      _c("div", { staticClass: "col-md-12" }, [
         _c("h6", [_vm._v("Subscriptions:")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12 text-center" }, [
+      _c("div", { staticStyle: { padding: "20px 0" } }, [
+        _vm._v(
+          "\n                    You currently have no subscriptions.\n                "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [_vm._v("Debug")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [_vm._v("Warning")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [_vm._v("Critical+")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [_vm._v("Email")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [_vm._v("Push")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [_vm._v("SMS")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col" }, [_vm._v("Hourly")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col" }, [_vm._v("Daily")])
+        ])
       ])
     ])
   },
