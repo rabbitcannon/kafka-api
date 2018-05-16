@@ -1,13 +1,49 @@
 /**
   Table of Contents
   ------------------------
-  UC01 - Page Fade Elements
-  UC02 - Overall Page Elements
+  UC01 - General Elements
+  UC02 - Page Fade Elements
+  UC03 - Overall Page Elements
 **/
 
+/** UC01 General Elements
+ ===================== **/
+
+button:focus {
+  outline: 0 !important;
+}
+
+.title {
+  font-size: 1.39em;
+  font-weigt: 600;
+}
+
+.alert {
+  &.error {
+    position: absolute;
+    margin-left: 29%;
+    margin-top: -116px;
+    z-index: 998;
+  }
+}
 
 
-/** UC01 Page Fade Elements
+.lean {
+  color: #6e6e6e;
+  font-style: italic;
+}
+
+.list {
+  .list__item {
+    border-right: 1px solid #CCC;
+
+    &:last-child {
+      border: 0;
+    }
+  }
+}
+
+/** UC02 Page Fade Elements
  ===================== **/
 
 #preloader {
@@ -28,7 +64,7 @@
   top: 50%;
 }
 
-/** UC02 Overall Page Elements
+/** UC03 Overall Page Elements
  ===================== **/
 
 .navbar-laravel {

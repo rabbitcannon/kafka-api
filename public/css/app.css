@@ -10409,11 +10409,44 @@ a.text-dark:focus {
 /**
   Table of Contents
   ------------------------
-  UC01 - Page Fade Elements
-  UC02 - Overall Page Elements
+  UC01 - General Elements
+  UC02 - Page Fade Elements
+  UC03 - Overall Page Elements
 **/
 
-/** UC01 Page Fade Elements
+/** UC01 General Elements
+ ===================== **/
+
+button:focus {
+  outline: 0 !important;
+}
+
+.title {
+  font-size: 1.39em;
+  font-weigt: 600;
+}
+
+.alert.error {
+  position: absolute;
+  margin-left: 29%;
+  margin-top: -116px;
+  z-index: 998;
+}
+
+.lean {
+  color: #6e6e6e;
+  font-style: italic;
+}
+
+.list .list__item {
+  border-right: 1px solid #CCC;
+}
+
+.list .list__item:last-child {
+  border: 0;
+}
+
+/** UC02 Page Fade Elements
  ===================== **/
 
 #preloader {
@@ -10434,7 +10467,7 @@ a.text-dark:focus {
   top: 50%;
 }
 
-/** UC02 Overall Page Elements
+/** UC03 Overall Page Elements
  ===================== **/
 
 .navbar-laravel {
@@ -10456,13 +10489,6 @@ h6 {
 
 /** UC01 Container Layout
  ===================== **/
-
-.alert.error {
-  position: absolute;
-  margin-left: 29%;
-  margin-top: -116px;
-  z-index: 998;
-}
 
 .container.\--section {
   padding: 7px 5px;

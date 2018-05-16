@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 142);
+/******/ 	return __webpack_require__(__webpack_require__.s = 141);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1902,7 +1902,7 @@
             try {
                 oldLocale = globalLocale._abbr;
                 var aliasedRequire = require;
-                __webpack_require__(183)("./" + name);
+                __webpack_require__(185)("./" + name);
                 getSetGlobalLocale(oldLocale);
             } catch (e) {}
         }
@@ -4584,7 +4584,7 @@
 
 
 var bind = __webpack_require__(9);
-var isBuffer = __webpack_require__(148);
+var isBuffer = __webpack_require__(147);
 
 /*global toString:true*/
 
@@ -5026,7 +5026,7 @@ module.exports = function normalizeComponent (
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(147);
+module.exports = __webpack_require__(146);
 
 /***/ }),
 /* 5 */
@@ -15407,7 +15407,7 @@ return jQuery;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(1);
-var normalizeHeaderName = __webpack_require__(150);
+var normalizeHeaderName = __webpack_require__(149);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -18276,12 +18276,12 @@ process.umask = function() { return 0; };
 
 
 var utils = __webpack_require__(1);
-var settle = __webpack_require__(151);
-var buildURL = __webpack_require__(153);
-var parseHeaders = __webpack_require__(154);
-var isURLSameOrigin = __webpack_require__(155);
+var settle = __webpack_require__(150);
+var buildURL = __webpack_require__(152);
+var parseHeaders = __webpack_require__(153);
+var isURLSameOrigin = __webpack_require__(154);
 var createError = __webpack_require__(12);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(156);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(155);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -18378,7 +18378,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(157);
+      var cookies = __webpack_require__(156);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -18462,7 +18462,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(152);
+var enhanceError = __webpack_require__(151);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -18992,7 +18992,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
         })();
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-}(__webpack_require__(170)));
+}(__webpack_require__(169)));
 
 
 /***/ }),
@@ -19000,7 +19000,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {(function (global, factory) {
-	 true ? factory(exports, __webpack_require__(171)) :
+	 true ? factory(exports, __webpack_require__(170)) :
 	typeof define === 'function' && define.amd ? define(['exports', '@fortawesome/fontawesome'], factory) :
 	(factory((global['vue-fontawesome'] = {}),global.FontAwesome));
 }(this, (function (exports,fontawesome) { 'use strict';
@@ -19740,7 +19740,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /* unused harmony export faAudioDescription */
 /* unused harmony export faBackward */
 /* unused harmony export faBalanceScale */
-/* unused harmony export faBan */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return faBan; });
 /* unused harmony export faBandAid */
 /* unused harmony export faBarcode */
 /* unused harmony export faBars */
@@ -19804,7 +19804,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /* unused harmony export faChartBar */
 /* unused harmony export faChartLine */
 /* unused harmony export faChartPie */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return faCheck; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return faCheck; });
 /* unused harmony export faCheckCircle */
 /* unused harmony export faCheckSquare */
 /* unused harmony export faChess */
@@ -19881,7 +19881,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /* unused harmony export faExchangeAlt */
 /* unused harmony export faExclamation */
 /* unused harmony export faExclamationCircle */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return faExclamationTriangle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return faExclamationTriangle; });
 /* unused harmony export faExpand */
 /* unused harmony export faExpandArrowsAlt */
 /* unused harmony export faExternalLinkAlt */
@@ -20048,7 +20048,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /* unused harmony export faPauseCircle */
 /* unused harmony export faPaw */
 /* unused harmony export faPenSquare */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return faPencilAlt; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return faPencilAlt; });
 /* unused harmony export faPeopleCarry */
 /* unused harmony export faPercent */
 /* unused harmony export faPhone */
@@ -20095,7 +20095,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /* unused harmony export faRssSquare */
 /* unused harmony export faRubleSign */
 /* unused harmony export faRupeeSign */
-/* unused harmony export faSave */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return faSave; });
 /* unused harmony export faSearch */
 /* unused harmony export faSearchMinus */
 /* unused harmony export faSearchPlus */
@@ -20182,7 +20182,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /* unused harmony export faThumbsUp */
 /* unused harmony export faThumbtack */
 /* unused harmony export faTicketAlt */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return faTimes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return faTimes; });
 /* unused harmony export faTimesCircle */
 /* unused harmony export faTint */
 /* unused harmony export faToggleOff */
@@ -20192,7 +20192,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 /* unused harmony export faTransgender */
 /* unused harmony export faTransgenderAlt */
 /* unused harmony export faTrash */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return faTrashAlt; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return faTrashAlt; });
 /* unused harmony export faTree */
 /* unused harmony export faTrophy */
 /* unused harmony export faTruck */
@@ -21510,53 +21510,6 @@ bunker(function () {
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var disposed = false
-var normalizeComponent = __webpack_require__(3)
-/* script */
-var __vue_script__ = __webpack_require__(172)
-/* template */
-var __vue_template__ = __webpack_require__(173)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/services/partials/Header.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-21bf99a0", Component.options)
-  } else {
-    hotAPI.reload("data-v-21bf99a0", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
 //! moment.js locale configuration
 
 ;(function (global, factory) {
@@ -21631,7 +21584,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21770,7 +21723,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21833,7 +21786,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -21896,7 +21849,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22022,7 +21975,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22085,7 +22038,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22193,7 +22146,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22256,7 +22209,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22365,7 +22318,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22501,7 +22454,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22595,7 +22548,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22657,7 +22610,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22780,7 +22733,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -22903,7 +22856,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23015,7 +22968,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23170,7 +23123,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23262,7 +23215,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23445,7 +23398,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23512,7 +23465,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23596,7 +23549,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23660,7 +23613,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23740,7 +23693,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23820,7 +23773,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -23900,7 +23853,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24003,7 +23956,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24107,7 +24060,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24178,7 +24131,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24245,7 +24198,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24316,7 +24269,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24387,7 +24340,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24453,7 +24406,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24524,7 +24477,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24599,7 +24552,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24695,7 +24648,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24791,7 +24744,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24878,7 +24831,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24962,7 +24915,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25032,7 +24985,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25142,7 +25095,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25255,7 +25208,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25319,7 +25272,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25406,7 +25359,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25484,7 +25437,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25566,7 +25519,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25645,7 +25598,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25725,7 +25678,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25806,7 +25759,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25933,7 +25886,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26061,7 +26014,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26162,7 +26115,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26290,7 +26243,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26448,7 +26401,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26562,7 +26515,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26661,7 +26614,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 73 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26747,7 +26700,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26883,7 +26836,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26956,7 +26909,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27052,7 +27005,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27138,7 +27091,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27231,7 +27184,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27322,7 +27275,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27436,7 +27389,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27566,7 +27519,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27651,7 +27604,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27742,7 +27695,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27882,7 +27835,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27956,7 +27909,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28078,7 +28031,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28179,7 +28132,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28295,7 +28248,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28363,7 +28316,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28457,7 +28410,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28542,7 +28495,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28650,7 +28603,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28814,7 +28767,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28900,7 +28853,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28986,7 +28939,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29050,7 +29003,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29147,7 +29100,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29213,7 +29166,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29340,7 +29293,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29431,7 +29384,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29522,7 +29475,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29586,7 +29539,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 103 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29714,7 +29667,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 104 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29844,7 +29797,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 105 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29913,7 +29866,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 106 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29978,7 +29931,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30057,7 +30010,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30243,7 +30196,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 109 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30345,7 +30298,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 110 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30409,7 +30362,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 111 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30484,7 +30437,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 112 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30644,7 +30597,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 113 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30821,7 +30774,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 114 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30893,7 +30846,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 115 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31008,7 +30961,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 116 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31123,7 +31076,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 117 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31215,7 +31168,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 118 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31288,7 +31241,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 119 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31351,7 +31304,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 120 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31484,7 +31437,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 121 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31577,7 +31530,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 122 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31648,7 +31601,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 123 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31768,7 +31721,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 124 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31839,7 +31792,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 125 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31905,7 +31858,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 126 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32031,7 +31984,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 127 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -32129,7 +32082,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 128 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32224,7 +32177,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 129 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32286,7 +32239,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 130 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32348,7 +32301,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 131 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js language configuration
@@ -32471,7 +32424,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 132 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32626,7 +32579,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 133 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32728,7 +32681,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 134 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32790,7 +32743,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 135 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32852,7 +32805,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 136 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32935,7 +32888,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 137 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33007,7 +32960,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 138 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33071,7 +33024,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 139 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33185,7 +33138,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 140 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33292,7 +33245,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 141 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33399,15 +33352,15 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 142 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(143);
-module.exports = __webpack_require__(185);
+__webpack_require__(142);
+module.exports = __webpack_require__(188);
 
 
 /***/ }),
-/* 143 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -33416,9 +33369,9 @@ module.exports = __webpack_require__(185);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(144);
+__webpack_require__(143);
 
-window.Vue = __webpack_require__(165);
+window.Vue = __webpack_require__(164);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33427,7 +33380,7 @@ window.Vue = __webpack_require__(165);
  */
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('service-results', __webpack_require__(168));
+Vue.component('service-results', __webpack_require__(167));
 Vue.component('kafka-topics', __webpack_require__(175));
 Vue.component('subscription-list', __webpack_require__(181));
 
@@ -33446,11 +33399,11 @@ $(window).on('load', function () {
 });
 
 /***/ }),
-/* 144 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(145);
+window._ = __webpack_require__(144);
 window.Popper = __webpack_require__(8).default;
 
 /**
@@ -33462,7 +33415,7 @@ window.Popper = __webpack_require__(8).default;
 try {
   window.$ = window.jQuery = __webpack_require__(5);
 
-  __webpack_require__(146);
+  __webpack_require__(145);
 } catch (e) {}
 
 /**
@@ -33507,7 +33460,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 145 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -50620,7 +50573,7 @@ if (token) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(7)(module)))
 
 /***/ }),
-/* 146 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -54551,7 +54504,7 @@ if (token) {
 
 
 /***/ }),
-/* 147 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54559,7 +54512,7 @@ if (token) {
 
 var utils = __webpack_require__(1);
 var bind = __webpack_require__(9);
-var Axios = __webpack_require__(149);
+var Axios = __webpack_require__(148);
 var defaults = __webpack_require__(6);
 
 /**
@@ -54594,14 +54547,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(14);
-axios.CancelToken = __webpack_require__(163);
+axios.CancelToken = __webpack_require__(162);
 axios.isCancel = __webpack_require__(13);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(164);
+axios.spread = __webpack_require__(163);
 
 module.exports = axios;
 
@@ -54610,7 +54563,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 148 */
+/* 147 */
 /***/ (function(module, exports) {
 
 /*!
@@ -54637,7 +54590,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 149 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54645,8 +54598,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(6);
 var utils = __webpack_require__(1);
-var InterceptorManager = __webpack_require__(158);
-var dispatchRequest = __webpack_require__(159);
+var InterceptorManager = __webpack_require__(157);
+var dispatchRequest = __webpack_require__(158);
 
 /**
  * Create a new instance of Axios
@@ -54723,7 +54676,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 150 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54742,7 +54695,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 151 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54775,7 +54728,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 152 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54803,7 +54756,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 153 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54876,7 +54829,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 154 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -54936,7 +54889,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 155 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55011,7 +54964,7 @@ module.exports = (
 
 
 /***/ }),
-/* 156 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55054,7 +55007,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 157 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55114,7 +55067,7 @@ module.exports = (
 
 
 /***/ }),
-/* 158 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55173,18 +55126,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 159 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(1);
-var transformData = __webpack_require__(160);
+var transformData = __webpack_require__(159);
 var isCancel = __webpack_require__(13);
 var defaults = __webpack_require__(6);
-var isAbsoluteURL = __webpack_require__(161);
-var combineURLs = __webpack_require__(162);
+var isAbsoluteURL = __webpack_require__(160);
+var combineURLs = __webpack_require__(161);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -55266,7 +55219,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 160 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55293,7 +55246,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 161 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55314,7 +55267,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 162 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55335,7 +55288,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 163 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55399,7 +55352,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 164 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55433,7 +55386,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 165 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -66396,10 +66349,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(166).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(165).setImmediate))
 
 /***/ }),
-/* 166 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -66455,7 +66408,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(167);
+__webpack_require__(166);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -66469,7 +66422,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 167 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -66662,13 +66615,13 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(10)))
 
 /***/ }),
-/* 168 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(169)
+var __vue_script__ = __webpack_require__(168)
 /* template */
 var __vue_template__ = __webpack_require__(174)
 /* template functional */
@@ -66709,7 +66662,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 169 */
+/* 168 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66721,7 +66674,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fortawesome_vue_fontawesome__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fortawesome_vue_fontawesome___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__fortawesome_vue_fontawesome__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__partials_Header_vue__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__partials_Header_vue__ = __webpack_require__(171);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__partials_Header_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__partials_Header_vue__);
 //
 //
@@ -66819,10 +66772,10 @@ __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.options.closeButton = true;
 /* harmony default export */ __webpack_exports__["default"] = ({
     computed: {
         checkIcon: function checkIcon() {
-            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["a" /* faCheck */];
+            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["b" /* faCheck */];
         },
         warningIcon: function warningIcon() {
-            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["b" /* faExclamationTriangle */];
+            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["c" /* faExclamationTriangle */];
         }
     },
 
@@ -66910,7 +66863,7 @@ __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.options.closeButton = true;
 });
 
 /***/ }),
-/* 170 */
+/* 169 */
 /***/ (function(module, exports) {
 
 module.exports = function() {
@@ -66919,7 +66872,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 171 */
+/* 170 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68725,6 +68678,53 @@ var config = api$1.config;
 
 
 /***/ }),
+/* 171 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(172)
+/* template */
+var __vue_template__ = __webpack_require__(173)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/services/partials/Header.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-21bf99a0", Component.options)
+  } else {
+    hotAPI.reload("data-v-21bf99a0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
 /* 172 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -69598,7 +69598,7 @@ var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(182)
 /* template */
-var __vue_template__ = __webpack_require__(184)
+var __vue_template__ = __webpack_require__(187)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -69644,6 +69644,145 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_result_item_vue__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_result_item_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_result_item_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        resultItem: __WEBPACK_IMPORTED_MODULE_1__components_result_item_vue___default.a
+    },
+
+    data: function data() {
+        return {
+            subs: [],
+            loading: false,
+            noResults: false
+        };
+    },
+
+
+    methods: {
+        getSubscriptions: function getSubscriptions() {
+            var _this = this;
+
+            this.loading = true;
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/subscriptions/list').then(function (response) {
+                _this.subs = response.data;
+                _this.loading = false;
+                if (!response.data.length) {
+                    _this.noResults = true;
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+        }
+    },
+
+    created: function created() {
+        this.getSubscriptions();
+    }
+});
+
+/***/ }),
+/* 183 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(184)
+/* template */
+var __vue_template__ = __webpack_require__(186)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/subscriptions/components/result-item.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6244379a", Component.options)
+  } else {
+    hotAPI.reload("data-v-6244379a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 184 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_toastr__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_toastr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_toastr__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__fortawesome_vue_fontawesome__ = __webpack_require__(16);
@@ -69651,8 +69790,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_partials_Header_vue__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_partials_Header_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__services_partials_Header_vue__);
 //
 //
 //
@@ -69819,8 +69956,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -69835,330 +69982,319 @@ __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.options.newestOnTop = false;
 __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.options.closeButton = true;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    computed: {
-        checkIcon: function checkIcon() {
-            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["a" /* faCheck */];
-        },
-        warningIcon: function warningIcon() {
-            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["b" /* faExclamationTriangle */];
-        },
-        editIcon: function editIcon() {
-            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["c" /* faPencilAlt */];
-        },
-        deleteIcon: function deleteIcon() {
-            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["e" /* faTrashAlt */];
-        },
-        timesIcon: function timesIcon() {
-            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["d" /* faTimes */];
-        }
-    },
-
-    components: {
-        TableHeader: __WEBPACK_IMPORTED_MODULE_5__services_partials_Header_vue___default.a,
-        FontAwesomeIcon: __WEBPACK_IMPORTED_MODULE_2__fortawesome_vue_fontawesome___default.a
-    },
+    props: ['id', 'service_id', 'updated_at', 'debug', 'warning', 'critical', 'email', 'push', 'sms', 'alerts', 'hourly', 'daily'],
 
     data: function data() {
         return {
-            subs: [],
-            loading: false,
-            noResults: false,
             editing: false
         };
     },
 
 
+    components: {
+        FontAwesomeIcon: __WEBPACK_IMPORTED_MODULE_2__fortawesome_vue_fontawesome___default.a
+    },
+
+    computed: {
+        checkIcon: function checkIcon() {
+            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["b" /* faCheck */];
+        },
+        warningIcon: function warningIcon() {
+            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["c" /* faExclamationTriangle */];
+        },
+        editIcon: function editIcon() {
+            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["d" /* faPencilAlt */];
+        },
+        deleteIcon: function deleteIcon() {
+            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["g" /* faTrashAlt */];
+        },
+        timesIcon: function timesIcon() {
+            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["f" /* faTimes */];
+        },
+        cancelIcon: function cancelIcon() {
+            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["a" /* faBan */];
+        },
+        saveIcon: function saveIcon() {
+            return __WEBPACK_IMPORTED_MODULE_3__fortawesome_fontawesome_free_solid__["e" /* faSave */];
+        }
+    },
+
     methods: {
-        editState: function editState(id) {
+        editState: function editState() {
             if (this.editing === false) {
                 this.editing = true;
             } else {
-                this.editing = true;
+                this.editing = false;
             }
         },
-        deleteState: function deleteState(id) {
-            axios.post('/subscription/delete/' + id).then(function () {
-                toastr.success("<font-awesome-icon :icon='checkIcon' /> Subscription has been deleted.");
-            }).catch(function (error) {
-                toastr.error("<font-awesome-icon :icon='checkIcon' /> Error, please try again.");
-            });
+        saveState: function saveState() {
+            __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.error("<font-awesome-icon :icon='warningIcon' /> Test.");
         },
-        getSubscriptions: function getSubscriptions() {
-            var _this = this;
-
-            this.loading = true;
-            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/subscriptions/list').then(function (response) {
-                _this.subs = response.data;
-                _this.loading = false;
-                if (!response.data.length) {
-                    _this.noResults = true;
-                }
+        deleteState: function deleteState(id) {
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/subscription/delete/' + id).then(function (response) {
+                __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.success("<font-awesome-icon :icon='checkIcon' /> Subscription has been deleted.");
+                console.log(response);
             }).catch(function (error) {
-                console.log(error);
+                __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.error("<font-awesome-icon :icon='warningIcon' />" + error + ".");
             });
         },
         parsedCreationDate: function parsedCreationDate(date) {
             return __WEBPACK_IMPORTED_MODULE_4_moment___default()(date).format('MM/DD/YYYY');
         }
-    },
-
-    created: function created() {
-        this.getSubscriptions();
-        this.toggleEditingState();
     }
 });
 
 /***/ }),
-/* 183 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 19,
-	"./af.js": 19,
-	"./ar": 20,
-	"./ar-dz": 21,
-	"./ar-dz.js": 21,
-	"./ar-kw": 22,
-	"./ar-kw.js": 22,
-	"./ar-ly": 23,
-	"./ar-ly.js": 23,
-	"./ar-ma": 24,
-	"./ar-ma.js": 24,
-	"./ar-sa": 25,
-	"./ar-sa.js": 25,
-	"./ar-tn": 26,
-	"./ar-tn.js": 26,
-	"./ar.js": 20,
-	"./az": 27,
-	"./az.js": 27,
-	"./be": 28,
-	"./be.js": 28,
-	"./bg": 29,
-	"./bg.js": 29,
-	"./bm": 30,
-	"./bm.js": 30,
-	"./bn": 31,
-	"./bn.js": 31,
-	"./bo": 32,
-	"./bo.js": 32,
-	"./br": 33,
-	"./br.js": 33,
-	"./bs": 34,
-	"./bs.js": 34,
-	"./ca": 35,
-	"./ca.js": 35,
-	"./cs": 36,
-	"./cs.js": 36,
-	"./cv": 37,
-	"./cv.js": 37,
-	"./cy": 38,
-	"./cy.js": 38,
-	"./da": 39,
-	"./da.js": 39,
-	"./de": 40,
-	"./de-at": 41,
-	"./de-at.js": 41,
-	"./de-ch": 42,
-	"./de-ch.js": 42,
-	"./de.js": 40,
-	"./dv": 43,
-	"./dv.js": 43,
-	"./el": 44,
-	"./el.js": 44,
-	"./en-au": 45,
-	"./en-au.js": 45,
-	"./en-ca": 46,
-	"./en-ca.js": 46,
-	"./en-gb": 47,
-	"./en-gb.js": 47,
-	"./en-ie": 48,
-	"./en-ie.js": 48,
-	"./en-il": 49,
-	"./en-il.js": 49,
-	"./en-nz": 50,
-	"./en-nz.js": 50,
-	"./eo": 51,
-	"./eo.js": 51,
-	"./es": 52,
-	"./es-do": 53,
-	"./es-do.js": 53,
-	"./es-us": 54,
-	"./es-us.js": 54,
-	"./es.js": 52,
-	"./et": 55,
-	"./et.js": 55,
-	"./eu": 56,
-	"./eu.js": 56,
-	"./fa": 57,
-	"./fa.js": 57,
-	"./fi": 58,
-	"./fi.js": 58,
-	"./fo": 59,
-	"./fo.js": 59,
-	"./fr": 60,
-	"./fr-ca": 61,
-	"./fr-ca.js": 61,
-	"./fr-ch": 62,
-	"./fr-ch.js": 62,
-	"./fr.js": 60,
-	"./fy": 63,
-	"./fy.js": 63,
-	"./gd": 64,
-	"./gd.js": 64,
-	"./gl": 65,
-	"./gl.js": 65,
-	"./gom-latn": 66,
-	"./gom-latn.js": 66,
-	"./gu": 67,
-	"./gu.js": 67,
-	"./he": 68,
-	"./he.js": 68,
-	"./hi": 69,
-	"./hi.js": 69,
-	"./hr": 70,
-	"./hr.js": 70,
-	"./hu": 71,
-	"./hu.js": 71,
-	"./hy-am": 72,
-	"./hy-am.js": 72,
-	"./id": 73,
-	"./id.js": 73,
-	"./is": 74,
-	"./is.js": 74,
-	"./it": 75,
-	"./it.js": 75,
-	"./ja": 76,
-	"./ja.js": 76,
-	"./jv": 77,
-	"./jv.js": 77,
-	"./ka": 78,
-	"./ka.js": 78,
-	"./kk": 79,
-	"./kk.js": 79,
-	"./km": 80,
-	"./km.js": 80,
-	"./kn": 81,
-	"./kn.js": 81,
-	"./ko": 82,
-	"./ko.js": 82,
-	"./ky": 83,
-	"./ky.js": 83,
-	"./lb": 84,
-	"./lb.js": 84,
-	"./lo": 85,
-	"./lo.js": 85,
-	"./lt": 86,
-	"./lt.js": 86,
-	"./lv": 87,
-	"./lv.js": 87,
-	"./me": 88,
-	"./me.js": 88,
-	"./mi": 89,
-	"./mi.js": 89,
-	"./mk": 90,
-	"./mk.js": 90,
-	"./ml": 91,
-	"./ml.js": 91,
-	"./mn": 92,
-	"./mn.js": 92,
-	"./mr": 93,
-	"./mr.js": 93,
-	"./ms": 94,
-	"./ms-my": 95,
-	"./ms-my.js": 95,
-	"./ms.js": 94,
-	"./mt": 96,
-	"./mt.js": 96,
-	"./my": 97,
-	"./my.js": 97,
-	"./nb": 98,
-	"./nb.js": 98,
-	"./ne": 99,
-	"./ne.js": 99,
-	"./nl": 100,
-	"./nl-be": 101,
-	"./nl-be.js": 101,
-	"./nl.js": 100,
-	"./nn": 102,
-	"./nn.js": 102,
-	"./pa-in": 103,
-	"./pa-in.js": 103,
-	"./pl": 104,
-	"./pl.js": 104,
-	"./pt": 105,
-	"./pt-br": 106,
-	"./pt-br.js": 106,
-	"./pt.js": 105,
-	"./ro": 107,
-	"./ro.js": 107,
-	"./ru": 108,
-	"./ru.js": 108,
-	"./sd": 109,
-	"./sd.js": 109,
-	"./se": 110,
-	"./se.js": 110,
-	"./si": 111,
-	"./si.js": 111,
-	"./sk": 112,
-	"./sk.js": 112,
-	"./sl": 113,
-	"./sl.js": 113,
-	"./sq": 114,
-	"./sq.js": 114,
-	"./sr": 115,
-	"./sr-cyrl": 116,
-	"./sr-cyrl.js": 116,
-	"./sr.js": 115,
-	"./ss": 117,
-	"./ss.js": 117,
-	"./sv": 118,
-	"./sv.js": 118,
-	"./sw": 119,
-	"./sw.js": 119,
-	"./ta": 120,
-	"./ta.js": 120,
-	"./te": 121,
-	"./te.js": 121,
-	"./tet": 122,
-	"./tet.js": 122,
-	"./tg": 123,
-	"./tg.js": 123,
-	"./th": 124,
-	"./th.js": 124,
-	"./tl-ph": 125,
-	"./tl-ph.js": 125,
-	"./tlh": 126,
-	"./tlh.js": 126,
-	"./tr": 127,
-	"./tr.js": 127,
-	"./tzl": 128,
-	"./tzl.js": 128,
-	"./tzm": 129,
-	"./tzm-latn": 130,
-	"./tzm-latn.js": 130,
-	"./tzm.js": 129,
-	"./ug-cn": 131,
-	"./ug-cn.js": 131,
-	"./uk": 132,
-	"./uk.js": 132,
-	"./ur": 133,
-	"./ur.js": 133,
-	"./uz": 134,
-	"./uz-latn": 135,
-	"./uz-latn.js": 135,
-	"./uz.js": 134,
-	"./vi": 136,
-	"./vi.js": 136,
-	"./x-pseudo": 137,
-	"./x-pseudo.js": 137,
-	"./yo": 138,
-	"./yo.js": 138,
-	"./zh-cn": 139,
-	"./zh-cn.js": 139,
-	"./zh-hk": 140,
-	"./zh-hk.js": 140,
-	"./zh-tw": 141,
-	"./zh-tw.js": 141
+	"./af": 18,
+	"./af.js": 18,
+	"./ar": 19,
+	"./ar-dz": 20,
+	"./ar-dz.js": 20,
+	"./ar-kw": 21,
+	"./ar-kw.js": 21,
+	"./ar-ly": 22,
+	"./ar-ly.js": 22,
+	"./ar-ma": 23,
+	"./ar-ma.js": 23,
+	"./ar-sa": 24,
+	"./ar-sa.js": 24,
+	"./ar-tn": 25,
+	"./ar-tn.js": 25,
+	"./ar.js": 19,
+	"./az": 26,
+	"./az.js": 26,
+	"./be": 27,
+	"./be.js": 27,
+	"./bg": 28,
+	"./bg.js": 28,
+	"./bm": 29,
+	"./bm.js": 29,
+	"./bn": 30,
+	"./bn.js": 30,
+	"./bo": 31,
+	"./bo.js": 31,
+	"./br": 32,
+	"./br.js": 32,
+	"./bs": 33,
+	"./bs.js": 33,
+	"./ca": 34,
+	"./ca.js": 34,
+	"./cs": 35,
+	"./cs.js": 35,
+	"./cv": 36,
+	"./cv.js": 36,
+	"./cy": 37,
+	"./cy.js": 37,
+	"./da": 38,
+	"./da.js": 38,
+	"./de": 39,
+	"./de-at": 40,
+	"./de-at.js": 40,
+	"./de-ch": 41,
+	"./de-ch.js": 41,
+	"./de.js": 39,
+	"./dv": 42,
+	"./dv.js": 42,
+	"./el": 43,
+	"./el.js": 43,
+	"./en-au": 44,
+	"./en-au.js": 44,
+	"./en-ca": 45,
+	"./en-ca.js": 45,
+	"./en-gb": 46,
+	"./en-gb.js": 46,
+	"./en-ie": 47,
+	"./en-ie.js": 47,
+	"./en-il": 48,
+	"./en-il.js": 48,
+	"./en-nz": 49,
+	"./en-nz.js": 49,
+	"./eo": 50,
+	"./eo.js": 50,
+	"./es": 51,
+	"./es-do": 52,
+	"./es-do.js": 52,
+	"./es-us": 53,
+	"./es-us.js": 53,
+	"./es.js": 51,
+	"./et": 54,
+	"./et.js": 54,
+	"./eu": 55,
+	"./eu.js": 55,
+	"./fa": 56,
+	"./fa.js": 56,
+	"./fi": 57,
+	"./fi.js": 57,
+	"./fo": 58,
+	"./fo.js": 58,
+	"./fr": 59,
+	"./fr-ca": 60,
+	"./fr-ca.js": 60,
+	"./fr-ch": 61,
+	"./fr-ch.js": 61,
+	"./fr.js": 59,
+	"./fy": 62,
+	"./fy.js": 62,
+	"./gd": 63,
+	"./gd.js": 63,
+	"./gl": 64,
+	"./gl.js": 64,
+	"./gom-latn": 65,
+	"./gom-latn.js": 65,
+	"./gu": 66,
+	"./gu.js": 66,
+	"./he": 67,
+	"./he.js": 67,
+	"./hi": 68,
+	"./hi.js": 68,
+	"./hr": 69,
+	"./hr.js": 69,
+	"./hu": 70,
+	"./hu.js": 70,
+	"./hy-am": 71,
+	"./hy-am.js": 71,
+	"./id": 72,
+	"./id.js": 72,
+	"./is": 73,
+	"./is.js": 73,
+	"./it": 74,
+	"./it.js": 74,
+	"./ja": 75,
+	"./ja.js": 75,
+	"./jv": 76,
+	"./jv.js": 76,
+	"./ka": 77,
+	"./ka.js": 77,
+	"./kk": 78,
+	"./kk.js": 78,
+	"./km": 79,
+	"./km.js": 79,
+	"./kn": 80,
+	"./kn.js": 80,
+	"./ko": 81,
+	"./ko.js": 81,
+	"./ky": 82,
+	"./ky.js": 82,
+	"./lb": 83,
+	"./lb.js": 83,
+	"./lo": 84,
+	"./lo.js": 84,
+	"./lt": 85,
+	"./lt.js": 85,
+	"./lv": 86,
+	"./lv.js": 86,
+	"./me": 87,
+	"./me.js": 87,
+	"./mi": 88,
+	"./mi.js": 88,
+	"./mk": 89,
+	"./mk.js": 89,
+	"./ml": 90,
+	"./ml.js": 90,
+	"./mn": 91,
+	"./mn.js": 91,
+	"./mr": 92,
+	"./mr.js": 92,
+	"./ms": 93,
+	"./ms-my": 94,
+	"./ms-my.js": 94,
+	"./ms.js": 93,
+	"./mt": 95,
+	"./mt.js": 95,
+	"./my": 96,
+	"./my.js": 96,
+	"./nb": 97,
+	"./nb.js": 97,
+	"./ne": 98,
+	"./ne.js": 98,
+	"./nl": 99,
+	"./nl-be": 100,
+	"./nl-be.js": 100,
+	"./nl.js": 99,
+	"./nn": 101,
+	"./nn.js": 101,
+	"./pa-in": 102,
+	"./pa-in.js": 102,
+	"./pl": 103,
+	"./pl.js": 103,
+	"./pt": 104,
+	"./pt-br": 105,
+	"./pt-br.js": 105,
+	"./pt.js": 104,
+	"./ro": 106,
+	"./ro.js": 106,
+	"./ru": 107,
+	"./ru.js": 107,
+	"./sd": 108,
+	"./sd.js": 108,
+	"./se": 109,
+	"./se.js": 109,
+	"./si": 110,
+	"./si.js": 110,
+	"./sk": 111,
+	"./sk.js": 111,
+	"./sl": 112,
+	"./sl.js": 112,
+	"./sq": 113,
+	"./sq.js": 113,
+	"./sr": 114,
+	"./sr-cyrl": 115,
+	"./sr-cyrl.js": 115,
+	"./sr.js": 114,
+	"./ss": 116,
+	"./ss.js": 116,
+	"./sv": 117,
+	"./sv.js": 117,
+	"./sw": 118,
+	"./sw.js": 118,
+	"./ta": 119,
+	"./ta.js": 119,
+	"./te": 120,
+	"./te.js": 120,
+	"./tet": 121,
+	"./tet.js": 121,
+	"./tg": 122,
+	"./tg.js": 122,
+	"./th": 123,
+	"./th.js": 123,
+	"./tl-ph": 124,
+	"./tl-ph.js": 124,
+	"./tlh": 125,
+	"./tlh.js": 125,
+	"./tr": 126,
+	"./tr.js": 126,
+	"./tzl": 127,
+	"./tzl.js": 127,
+	"./tzm": 128,
+	"./tzm-latn": 129,
+	"./tzm-latn.js": 129,
+	"./tzm.js": 128,
+	"./ug-cn": 130,
+	"./ug-cn.js": 130,
+	"./uk": 131,
+	"./uk.js": 131,
+	"./ur": 132,
+	"./ur.js": 132,
+	"./uz": 133,
+	"./uz-latn": 134,
+	"./uz-latn.js": 134,
+	"./uz.js": 133,
+	"./vi": 135,
+	"./vi.js": 135,
+	"./x-pseudo": 136,
+	"./x-pseudo.js": 136,
+	"./yo": 137,
+	"./yo.js": 137,
+	"./zh-cn": 138,
+	"./zh-cn.js": 138,
+	"./zh-hk": 139,
+	"./zh-hk.js": 139,
+	"./zh-tw": 140,
+	"./zh-tw.js": 140
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -70174,10 +70310,496 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 183;
+webpackContext.id = 185;
 
 /***/ }),
-/* 184 */
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("form", { attrs: { action: "" } }, [
+    _c(
+      "div",
+      { staticClass: "row text-center", staticStyle: { padding: "12px 0" } },
+      [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row border-bottom text-left" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("span", { staticClass: "title" }, [
+                _vm._v(_vm._s(_vm.service_id))
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "container",
+            staticStyle: { "padding-bottom": "25px" }
+          },
+          [
+            _c("div", { staticClass: "row list" }, [
+              _c("div", { staticClass: "col list__item" }, [
+                !_vm.editing
+                  ? _c("div", [
+                      _vm.debug === 1
+                        ? _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-success",
+                                attrs: { icon: _vm.checkIcon }
+                              })
+                            ],
+                            1
+                          )
+                        : _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-danger",
+                                attrs: { icon: _vm.timesIcon }
+                              })
+                            ],
+                            1
+                          )
+                    ])
+                  : _c("div", [
+                      _c("input", {
+                        attrs: { type: "checkbox", id: "debug-" + _vm.id },
+                        domProps: { checked: _vm.debug === 1 }
+                      })
+                    ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col list__item" }, [
+                !_vm.editing
+                  ? _c("div", [
+                      _vm.warning === 1
+                        ? _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-success",
+                                attrs: { icon: _vm.checkIcon }
+                              })
+                            ],
+                            1
+                          )
+                        : _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-danger",
+                                attrs: { icon: _vm.timesIcon }
+                              })
+                            ],
+                            1
+                          )
+                    ])
+                  : _c("div", [
+                      _c("input", {
+                        attrs: { type: "checkbox", id: "warning-" + _vm.id },
+                        domProps: { checked: _vm.warning === 1 }
+                      })
+                    ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col list__item" }, [
+                !_vm.editing
+                  ? _c("div", [
+                      _vm.critical === 1
+                        ? _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-success",
+                                attrs: { icon: _vm.checkIcon }
+                              })
+                            ],
+                            1
+                          )
+                        : _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-danger",
+                                attrs: { icon: _vm.timesIcon }
+                              })
+                            ],
+                            1
+                          )
+                    ])
+                  : _c("div", [
+                      _c("input", {
+                        attrs: { type: "checkbox", id: "critical-" + _vm.id },
+                        domProps: { checked: _vm.critical === 1 }
+                      })
+                    ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col list__item" }, [
+                !_vm.editing
+                  ? _c("div", [
+                      _vm.email === 1
+                        ? _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-success",
+                                attrs: { icon: _vm.checkIcon }
+                              })
+                            ],
+                            1
+                          )
+                        : _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-danger",
+                                attrs: { icon: _vm.timesIcon }
+                              })
+                            ],
+                            1
+                          )
+                    ])
+                  : _c("div", [
+                      _c("input", {
+                        attrs: { type: "checkbox", id: "email-" + _vm.id },
+                        domProps: { checked: _vm.email === 1 }
+                      })
+                    ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col list__item" }, [
+                !_vm.editing
+                  ? _c("div", [
+                      _vm.push === 1
+                        ? _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-success",
+                                attrs: { icon: _vm.checkIcon }
+                              })
+                            ],
+                            1
+                          )
+                        : _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-danger",
+                                attrs: { icon: _vm.timesIcon }
+                              })
+                            ],
+                            1
+                          )
+                    ])
+                  : _c("div", [
+                      _c("input", {
+                        attrs: { type: "checkbox", id: "push-" + _vm.id },
+                        domProps: { checked: _vm.push === 1 }
+                      })
+                    ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col list__item" }, [
+                !_vm.editing
+                  ? _c("div", [
+                      _vm.sms === 1
+                        ? _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-success",
+                                attrs: { icon: _vm.checkIcon }
+                              })
+                            ],
+                            1
+                          )
+                        : _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-danger",
+                                attrs: { icon: _vm.timesIcon }
+                              })
+                            ],
+                            1
+                          )
+                    ])
+                  : _c("div", [
+                      _c("input", {
+                        attrs: { type: "checkbox", id: "sms-" + _vm.id },
+                        domProps: { checked: _vm.sms === 1 }
+                      })
+                    ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col list__item" }, [
+                !_vm.editing
+                  ? _c("div", [
+                      _vm.alerts === 1
+                        ? _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-success",
+                                attrs: { icon: _vm.checkIcon }
+                              })
+                            ],
+                            1
+                          )
+                        : _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-danger",
+                                attrs: { icon: _vm.timesIcon }
+                              })
+                            ],
+                            1
+                          )
+                    ])
+                  : _c("div", [
+                      _c("input", {
+                        attrs: { type: "checkbox", id: "alerts-" + _vm.id },
+                        domProps: { checked: _vm.alerts === 1 }
+                      })
+                    ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col list__item" }, [
+                !_vm.editing
+                  ? _c("div", [
+                      _vm.hourly === 1
+                        ? _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-success",
+                                attrs: { icon: _vm.checkIcon }
+                              })
+                            ],
+                            1
+                          )
+                        : _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-danger",
+                                attrs: { icon: _vm.timesIcon }
+                              })
+                            ],
+                            1
+                          )
+                    ])
+                  : _c("div", [
+                      _c("div", { staticClass: "form-check" }, [
+                        _c("input", {
+                          staticClass: "form-check-input",
+                          attrs: { type: "checkbox", id: "hourly-" + _vm.id },
+                          domProps: { checked: _vm.hourly === 1 }
+                        })
+                      ])
+                    ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col list__item" }, [
+                !_vm.editing
+                  ? _c("div", [
+                      _vm.daily === 1
+                        ? _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-success",
+                                attrs: { icon: _vm.checkIcon }
+                              })
+                            ],
+                            1
+                          )
+                        : _c(
+                            "span",
+                            [
+                              _c("font-awesome-icon", {
+                                staticClass: "text-danger",
+                                attrs: { icon: _vm.timesIcon }
+                              })
+                            ],
+                            1
+                          )
+                    ])
+                  : _c("div", [
+                      _c("input", {
+                        attrs: { type: "checkbox", id: "daily-" + _vm.id },
+                        domProps: { checked: _vm.daily === 1 }
+                      })
+                    ])
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row border-top " }, [
+            _c("div", { staticClass: "col text-left" }, [
+              _c("small", { staticClass: "lean" }, [
+                _vm._v(
+                  "Updated on: " +
+                    _vm._s(_vm.parsedCreationDate(_vm.updated_at))
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col text-right",
+                staticStyle: { "padding-top": "12px" }
+              },
+              [
+                !_vm.editing
+                  ? _c("div", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-dark",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.editState()
+                            }
+                          }
+                        },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: _vm.editIcon }
+                          }),
+                          _vm._v(" Edit\n                        ")
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.deleteState(_vm.id)
+                            }
+                          }
+                        },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: _vm.deleteIcon }
+                          }),
+                          _vm._v(" Delete\n                        ")
+                        ],
+                        1
+                      )
+                    ])
+                  : _c("div", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-dark",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.saveState()
+                            }
+                          }
+                        },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: _vm.saveIcon }
+                          }),
+                          _vm._v(" Save\n                        ")
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-danger",
+                          on: {
+                            click: function($event) {
+                              $event.preventDefault()
+                              _vm.editState()
+                            }
+                          }
+                        },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: _vm.cancelIcon }
+                          }),
+                          _vm._v(" Cancel\n                        ")
+                        ],
+                        1
+                      )
+                    ])
+              ]
+            )
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "container", staticStyle: { "padding-top": "25px" } },
+      [
+        _c("div", { staticClass: "row list" }, [
+          _c("div", { staticClass: "col list__item" }, [_vm._v("Debug")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col list__item" }, [_vm._v("Warning")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col list__item" }, [_vm._v("Critical+")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col list__item" }, [_vm._v("Email")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col list__item" }, [_vm._v("Push")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col list__item" }, [_vm._v("SMS")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col list__item" }, [_vm._v("All Alerts")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col list__item" }, [_vm._v("Hourly")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col list__item" }, [_vm._v("Daily")])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6244379a", module.exports)
+  }
+}
+
+/***/ }),
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -70198,300 +70820,32 @@ var render = function() {
           : _vm._l(_vm.subs, function(sub) {
               return _c(
                 "div",
-                { staticClass: "row", staticStyle: { padding: "12px 0" } },
+                { staticClass: "container" },
                 [
-                  _c("div", { staticClass: "col-md-12" }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-md-12" }, [
-                        _c("div", { staticClass: "border-bottom" }, [
-                          _c("h5", [_vm._v(_vm._s(sub.service_id))]),
-                          _vm._v(" "),
-                          _c("small", { staticClass: "text-muted" }, [
-                            _vm._v(
-                              "Created on: " +
-                                _vm._s(_vm.parsedCreationDate(sub.created_at))
-                            )
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "text-center",
-                            staticStyle: { padding: "10px 0" }
-                          },
-                          [
-                            _vm._m(3, true),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "row" }, [
-                              _c("div", { staticClass: "col" }, [
-                                _c("div", { staticClass: "row" }, [
-                                  _c("div", { staticClass: "col" }, [
-                                    sub.debug === 1
-                                      ? _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-success",
-                                              attrs: { icon: _vm.checkIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      : _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-danger",
-                                              attrs: { icon: _vm.timesIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "col" }, [
-                                    sub.warning === 1
-                                      ? _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-success",
-                                              attrs: { icon: _vm.checkIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      : _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-danger",
-                                              attrs: { icon: _vm.timesIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "col" }, [
-                                    sub.critical === 1
-                                      ? _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-success",
-                                              attrs: { icon: _vm.checkIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      : _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-danger",
-                                              attrs: { icon: _vm.timesIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                  ])
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col" }, [
-                                _c("div", { staticClass: "row" }, [
-                                  _c("div", { staticClass: "col" }, [
-                                    sub.email === 1
-                                      ? _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-success",
-                                              attrs: { icon: _vm.checkIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      : _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-danger",
-                                              attrs: { icon: _vm.timesIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "col" }, [
-                                    sub.push === 1
-                                      ? _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-success",
-                                              attrs: { icon: _vm.checkIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      : _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-danger",
-                                              attrs: { icon: _vm.timesIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "col" }, [
-                                    sub.sms === 1
-                                      ? _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-success",
-                                              attrs: { icon: _vm.checkIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      : _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-danger",
-                                              attrs: { icon: _vm.timesIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                  ])
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "col" }, [
-                                _c("div", { staticClass: "row" }, [
-                                  _c("div", { staticClass: "col" }, [
-                                    sub.hourly === 1
-                                      ? _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-success",
-                                              attrs: { icon: _vm.checkIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      : _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-danger",
-                                              attrs: { icon: _vm.timesIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("div", { staticClass: "col" }, [
-                                    sub.daily === 1
-                                      ? _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-success",
-                                              attrs: { icon: _vm.checkIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                      : _c(
-                                          "span",
-                                          [
-                                            _c("font-awesome-icon", {
-                                              staticClass: "text-danger",
-                                              attrs: { icon: _vm.timesIcon }
-                                            })
-                                          ],
-                                          1
-                                        )
-                                  ])
-                                ])
-                              ])
-                            ])
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "border-top",
-                            staticStyle: { "padding-top": "12px" }
-                          },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-dark",
-                                attrs: { href: "/edit/" + sub.id },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    _vm.editState(sub.id)
-                                  }
-                                }
-                              },
-                              [
-                                _c("font-awesome-icon", {
-                                  attrs: { icon: _vm.editIcon }
-                                }),
-                                _vm._v(" Edit\n                            ")
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-danger",
-                                attrs: { href: "/delete/" + sub.id },
-                                on: {
-                                  click: function($event) {
-                                    $event.preventDefault()
-                                    _vm.deleteState(sub.id)
-                                  }
-                                }
-                              },
-                              [
-                                _c("font-awesome-icon", {
-                                  attrs: { icon: _vm.deleteIcon }
-                                }),
-                                _vm._v(" Delete\n                            ")
-                              ],
-                              1
-                            )
-                          ]
-                        )
-                      ])
-                    ])
-                  ])
-                ]
+                  _c("result-item", {
+                    attrs: {
+                      id: sub.id,
+                      service_id: sub.service_id,
+                      debug: sub.debug,
+                      warning: sub.warning,
+                      critical: sub.critical,
+                      email: sub.email,
+                      push: sub.push,
+                      sms: sub.sms,
+                      alerts: sub.alerts,
+                      hourly: sub.hourly,
+                      daily: sub.daily
+                    }
+                  })
+                ],
+                1
               )
             })
       ],
       2
     ),
     _vm._v(" "),
-    _vm.loading ? _c("div", [_vm._m(4)]) : _vm._e()
+    _vm.loading ? _c("div", [_vm._m(3)]) : _vm._e()
   ])
 }
 var staticRenderFns = [
@@ -70530,40 +70884,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col" }, [_vm._v("Debug")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [_vm._v("Warning")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [_vm._v("Critical+")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col" }, [_vm._v("Email")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [_vm._v("Push")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [_vm._v("SMS")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col" }, [_vm._v("Hourly")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col" }, [_vm._v("Daily")])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12 text-center" }, [
         _c("img", { attrs: { src: "images/loader_x64.svg" } })
       ])
@@ -70580,7 +70900,7 @@ if (false) {
 }
 
 /***/ }),
-/* 185 */
+/* 188 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

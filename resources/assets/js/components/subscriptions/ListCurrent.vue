@@ -1,9 +1,4 @@
-<!--<template v-if="editing">-->
-    <!--Editing-->
-<!--</template>-->
-
 <template>
-
     <div class="container --section">
         <div class="__header">
             <div>
@@ -26,131 +21,11 @@
                 </div>
             </div>
 
-            <div v-else class="row" v-for="sub of subs" style="padding: 12px 0;">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="border-bottom">
-                                <h5>{{ sub.service_id }}</h5>
-                                <small class="text-muted">Created on: {{ parsedCreationDate(sub.created_at) }}</small>
-                            </div>
-
-                            <div class="text-center" style="padding: 10px 0;">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col">Debug</div>
-                                            <div class="col">Warning</div>
-                                            <div class="col">Critical+</div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col">Email</div>
-                                            <div class="col">Push</div>
-                                            <div class="col">SMS</div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col">Hourly</div>
-                                            <div class="col">Daily</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col">
-                                                <span v-if="sub.debug === 1">
-                                                    <font-awesome-icon class="text-success" :icon="checkIcon"/>
-                                                </span>
-                                                <span v-else>
-                                                    <font-awesome-icon class="text-danger" :icon="timesIcon"/>
-                                                </span>
-                                            </div>
-                                            <div class="col">
-                                                <span v-if="sub.warning === 1">
-                                                    <font-awesome-icon class="text-success" :icon="checkIcon"/>
-                                                </span>
-                                                <span v-else>
-                                                    <font-awesome-icon class="text-danger" :icon="timesIcon"/>
-                                                </span>
-                                            </div>
-                                            <div class="col">
-                                                <span v-if="sub.critical === 1">
-                                                    <font-awesome-icon class="text-success" :icon="checkIcon"/>
-                                                </span>
-                                                <span v-else>
-                                                    <font-awesome-icon class="text-danger" :icon="timesIcon"/>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col">
-                                                <span v-if="sub.email === 1">
-                                                    <font-awesome-icon class="text-success" :icon="checkIcon"/>
-                                                </span>
-                                                <span v-else>
-                                                    <font-awesome-icon class="text-danger" :icon="timesIcon"/>
-                                                </span>
-                                            </div>
-                                            <div class="col">
-                                                <span v-if="sub.push === 1">
-                                                    <font-awesome-icon class="text-success" :icon="checkIcon"/>
-                                                </span>
-                                                <span v-else>
-                                                    <font-awesome-icon class="text-danger" :icon="timesIcon"/>
-                                                </span>
-                                            </div>
-                                            <div class="col">
-                                                <span v-if="sub.sms === 1">
-                                                    <font-awesome-icon class="text-success" :icon="checkIcon"/>
-                                                </span>
-                                                <span v-else>
-                                                    <font-awesome-icon class="text-danger" :icon="timesIcon"/>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="row">
-                                            <div class="col">
-                                                <span v-if="sub.hourly === 1">
-                                                    <font-awesome-icon class="text-success" :icon="checkIcon"/>
-                                                </span>
-                                                <span v-else>
-                                                    <font-awesome-icon class="text-danger" :icon="timesIcon"/>
-                                                </span>
-                                            </div>
-                                            <div class="col">
-                                                <span v-if="sub.daily === 1">
-                                                    <font-awesome-icon class="text-success" :icon="checkIcon"/>
-                                                </span>
-                                                <span v-else>
-                                                    <font-awesome-icon class="text-danger" :icon="timesIcon"/>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="border-top" style="padding-top: 12px;">
-                                <a v-bind:href="'/edit/' + sub.id" class="btn btn-dark" v-on:click.prevent="editState(sub.id)">
-                                    <font-awesome-icon :icon="editIcon"/> Edit
-                                </a>
-                                <a v-bind:href="'/delete/' + sub.id" class="btn btn-danger" v-on:click.prevent="deleteState(sub.id)">
-                                    <font-awesome-icon :icon="deleteIcon"/> Delete
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div v-else class="container" v-for="sub of subs">
+                <result-item v-bind:id="sub.id" v-bind:service_id="sub.service_id" v-bind:debug="sub.debug"
+                             v-bind:warning="sub.warning" v-bind:critical="sub.critical" v-bind:email="sub.email"
+                             v-bind:push="sub.push" v-bind:sms="sub.sms" v-bind:alerts="sub.alerts"
+                             v-bind:hourly="sub.hourly" v-bind:daily="sub.daily"></result-item>
             </div>
         </div>
 
@@ -166,42 +41,12 @@
 
 <script>
     import Axios from 'axios';
-    import Toastr from 'toastr';
-    import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
-    import { faCheck, faExclamationTriangle, faPencilAlt,
-        faTrashAlt, faTimes } from '@fortawesome/fontawesome-free-solid';
-    import Moment from 'moment';
 
-    import TableHeader from '../services/partials/Header.vue';
-
-    Toastr.options.closeMethod = 'fadeOut';
-    Toastr.options.showMethod = 'fadeIn';
-    Toastr.options.closeDuration = 300;
-    Toastr.options.newestOnTop = false;
-    Toastr.options.closeButton = true;
+    import resultItem from './components/result-item.vue';
 
     export default {
-        computed: {
-            checkIcon() {
-                return faCheck
-            },
-            warningIcon() {
-                return faExclamationTriangle
-            },
-            editIcon() {
-                return faPencilAlt
-            },
-            deleteIcon() {
-                return faTrashAlt
-            },
-            timesIcon() {
-                return faTimes
-            }
-        },
-
         components: {
-            TableHeader,
-            FontAwesomeIcon
+            resultItem,
         },
 
         data() {
@@ -209,26 +54,10 @@
                 subs: [],
                 loading: false,
                 noResults: false,
-                editing: false,
             }
         },
 
         methods: {
-            editState: function(id) {
-                if(this.editing === false) {
-                    this.editing = true;
-                }
-                else {
-                    this.editing = true;
-                }
-            },
-            deleteState: function(id) {
-                axios.post('/subscription/delete/' + id).then(() => {
-                    toastr.success("<font-awesome-icon :icon='checkIcon' /> Subscription has been deleted.");
-                }).catch((error) => {
-                    toastr.error("<font-awesome-icon :icon='checkIcon' /> Error, please try again.")
-                });
-            },
             getSubscriptions() {
                 this.loading = true;
                 Axios.get('/subscriptions/list').then((response) => {
@@ -241,14 +70,10 @@
                     console.log(error);
                 });
             },
-            parsedCreationDate(date) {
-                return Moment(date).format('MM/DD/YYYY');
-            },
         },
 
         created() {
             this.getSubscriptions();
-            this.toggleEditingState();
         }
     }
 </script>
