@@ -41,7 +41,10 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('/', function() {
             return view('subscriptions.index');
         });
+
+        Route::get('/single/{id}', 'SubscriptionController@getSubscription');
         Route::get('/list', 'SubscriptionController@listSubscriptions');
+        Route::put('/edit/{id}', 'SubscriptionController@edit');
         Route::post('/create', 'SubscriptionController@create');
         Route::post('/delete/{id}', 'SubscriptionController@delete');
     });

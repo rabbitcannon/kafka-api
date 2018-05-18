@@ -1,10 +1,10 @@
 <template>
-    <form action="">
+    <form v-bind:id="'sub-form-' + id">
         <div class="row text-center" style="padding: 12px 0;">
             <div class="container">
                 <div class="row border-bottom text-left">
                     <div class="col">
-                        <span class="title">{{ service_id }}</span>
+                        <span class="title">{{ service_id }}</span> <span v-if="loading"><img src="images/loader_x25.svg"/></span>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                 <div class="row list">
                     <div class="col list__item">
                         <div v-if="!editing">
-                            <span v-if="debug === 1">
+                            <span v-if="debugValue === 1">
                                 <font-awesome-icon class="text-success" :icon="checkIcon"/>
                             </span>
                             <span v-else>
@@ -35,12 +35,12 @@
                             </span>
                         </div>
                         <div v-else>
-                            <input type="checkbox" v-bind:id="'debug-' + id" v-bind:checked="debug === 1">
+                            <input type="checkbox" value="1" v-bind:id="'debug-' + id" :checked="debugValue === 1">
                         </div>
                     </div>
                     <div class="col list__item">
                         <div v-if="!editing">
-                            <span v-if="warning === 1">
+                            <span v-if="warningValue === 1">
                                 <font-awesome-icon class="text-success" :icon="checkIcon"/>
                             </span>
                             <span v-else>
@@ -48,12 +48,12 @@
                             </span>
                         </div>
                         <div v-else>
-                            <input type="checkbox" v-bind:id="'warning-' + id" v-bind:checked="warning === 1">
+                            <input type="checkbox" value="1" v-bind:id="'warning-' + id" :checked="warningValue === 1">
                         </div>
                     </div>
                     <div class="col list__item">
                         <div v-if="!editing">
-                            <span v-if="critical === 1">
+                            <span v-if="criticalValue === 1">
                                 <font-awesome-icon class="text-success" :icon="checkIcon"/>
                             </span>
                             <span v-else>
@@ -61,12 +61,12 @@
                             </span>
                         </div>
                         <div v-else>
-                            <input type="checkbox" v-bind:id="'critical-' + id" v-bind:checked="critical === 1">
+                            <input type="checkbox" value="1" v-bind:id="'critical-' + id" :checked="criticalValue === 1">
                         </div>
                     </div>
                     <div class="col list__item">
                         <div v-if="!editing">
-                            <span v-if="email === 1">
+                            <span v-if="emailValue === 1">
                                 <font-awesome-icon class="text-success" :icon="checkIcon"/>
                             </span>
                             <span v-else>
@@ -74,12 +74,12 @@
                             </span>
                         </div>
                         <div v-else>
-                            <input type="checkbox" v-bind:id="'email-' + id" v-bind:checked="email === 1">
+                            <input type="checkbox" value="1" v-bind:id="'email-' + id" :checked="emailValue === 1">
                         </div>
                     </div>
                     <div class="col list__item">
                         <div v-if="!editing">
-                            <span v-if="push === 1">
+                            <span v-if="pushValue === 1">
                                 <font-awesome-icon class="text-success" :icon="checkIcon"/>
                             </span>
                             <span v-else>
@@ -87,12 +87,12 @@
                             </span>
                         </div>
                         <div v-else>
-                            <input type="checkbox" v-bind:id="'push-' + id" v-bind:checked="push === 1">
+                            <input type="checkbox" value="1" v-bind:id="'push-' + id" :checked="pushValue === 1">
                         </div>
                     </div>
                     <div class="col list__item">
                         <div v-if="!editing">
-                            <span v-if="sms === 1">
+                            <span v-if="smsValue === 1">
                                 <font-awesome-icon class="text-success" :icon="checkIcon"/>
                             </span>
                             <span v-else>
@@ -100,12 +100,12 @@
                             </span>
                         </div>
                         <div v-else>
-                            <input type="checkbox" v-bind:id="'sms-' + id" v-bind:checked="sms === 1">
+                            <input type="checkbox" value="1" v-bind:id="'sms-' + id" :checked="smsValue === 1">
                         </div>
                     </div>
                     <div class="col list__item">
                         <div v-if="!editing">
-                            <span v-if="alerts === 1">
+                            <span v-if="alertsValue === 1">
                                 <font-awesome-icon class="text-success" :icon="checkIcon"/>
                             </span>
                             <span v-else>
@@ -113,12 +113,12 @@
                             </span>
                         </div>
                         <div v-else>
-                            <input type="checkbox" v-bind:id="'alerts-' + id" v-bind:checked="alerts === 1">
+                            <input type="checkbox" value="1" v-bind:id="'alerts-' + id" :checked="alertsValue === 1">
                         </div>
                     </div>
                     <div class="col list__item">
                         <div v-if="!editing">
-                            <span v-if="hourly === 1">
+                            <span v-if="hourlyValue === 1">
                                 <font-awesome-icon class="text-success" :icon="checkIcon"/>
                             </span>
                             <span v-else>
@@ -127,13 +127,13 @@
                         </div>
                         <div v-else>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" v-bind:id="'hourly-' + id" v-bind:checked="hourly === 1">
+                                <input type="checkbox" value="1" v-bind:id="'hourly-' + id" :checked="hourlyValue === 1">
                             </div>
                         </div>
                     </div>
                     <div class="col list__item">
                         <div v-if="!editing">
-                            <span v-if="daily === 1">
+                            <span v-if="dailyValue === 1">
                                 <font-awesome-icon class="text-success" :icon="checkIcon"/>
                             </span>
                             <span v-else>
@@ -141,7 +141,7 @@
                             </span>
                         </div>
                         <div v-else>
-                            <input type="checkbox" v-bind:id="'daily-' + id" v-bind:checked="daily === 1">
+                            <input type="checkbox" value="1" v-bind:id="'daily-' + id" :checked="dailyValue === 1">
                         </div>
                     </div>
                 </div>
@@ -162,7 +162,7 @@
                             </button>
                         </div>
                         <div v-else>
-                            <button class="btn btn-dark" v-on:click.prevent="saveState()">
+                            <button class="btn btn-dark" v-on:click.submit.prevent="saveState(id)">
                                 <font-awesome-icon :icon="saveIcon"/> Save
                             </button>
                             <button class="btn btn-danger" v-on:click.prevent="editState()">
@@ -173,6 +173,7 @@
                 </div>
             </div>
         </div>
+
     </form>
 </template>
 
@@ -198,7 +199,17 @@
 
         data() {
             return {
+                loading: false,
                 editing: false,
+                debugValue: this.debug,
+                warningValue: this.warning,
+                criticalValue: this.critical,
+                emailValue: this.email,
+                pushValue: this.push,
+                smsValue: this.sms,
+                alertsValue: this.alerts,
+                hourlyValue: this.hourly,
+                dailyValue: this.daily,
             }
         },
 
@@ -239,15 +250,49 @@
                     this.editing = false;
                 }
             },
-            saveState() {
-                Toastr.error("<font-awesome-icon :icon='warningIcon' /> Test.")
+            saveState(id) {
+                var inputArray = {};
+
+                $('#sub-form-' +id).find('input:checkbox:checked').each(function() {
+                    let parsedId = $(this).attr('id').replace('-' + id, "");
+                    inputArray[parsedId] = $(this).val();
+                });
+
+                Axios.put('/subscriptions/edit/' + id, {
+                    data: inputArray
+                }).then((response) => {
+                    if(response.status === 200) {
+                        Toastr.success("<font-awesome-icon :icon='checkIcon' /> Subscription saved.");
+                        this.getModifiedSubscription(id);
+                    }
+                }).catch((error) => {
+                    Toastr.error("<font-awesome-icon :icon='warningIcon' />" + error + ".");
+                });
             },
             deleteState(id) {
                 Axios.post('/subscription/delete/' + id).then((response) => {
                     Toastr.success("<font-awesome-icon :icon='checkIcon' /> Subscription has been deleted.");
-                    console.log(response)
+                    console.log(response);
                 }).catch((error) => {
                     Toastr.error("<font-awesome-icon :icon='warningIcon' />" + error + ".");
+                });
+            },
+            getModifiedSubscription(id) {
+                this.loading = true;
+                Axios.get('/subscriptions/single/' + id).then((response) => {
+                    this.debugValue = response.data.debug;
+                    this.warningValue =  response.data.warning;
+                    this.criticalValue =  response.data.critical;
+                    this.emailValue =  response.data.email;
+                    this.pushValue =  response.data.push;
+                    this.smsValue =  response.data.sms;
+                    this.alertsValue =  response.data.alerts;
+                    this.hourlyValue =  response.data.hourly;
+                    this.dailyValue =  response.data.daily;
+                    this.loading = false;
+                    this.editing = false;
+                }).catch((error) => {
+                    console.log(error);
                 });
             },
             parsedCreationDate(date) {

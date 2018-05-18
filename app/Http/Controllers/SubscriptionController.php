@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\AlertFrequency;
+use App\AlertMethod;
+use App\AlertType;
 use App\Subscription;
 use Illuminate\Http\Request;
 
@@ -76,8 +79,38 @@ class SubscriptionController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     */
+    public function edit($id, Request $request) {
+        $fields = $request->all()['data'];
+        $frequencies = AlertFrequency::pluck('name')->toArray();
+        $methods = AlertMethod::pluck('name')->toArray();
+        $types = AlertType::pluck('name')->toArray();
+        $array = array_merge($frequencies, $methods, $types);
+        $subscription = Subscription::find($id);
+
+        foreach($array as $item) {
+            $replaceble = [" ", "+", "All"];
+            $strip_spaces = str_replace($replaceble, "", $item);
+            $text = strtolower($strip_spaces);
+            $subscription->$text = $value = array_key_exists($text, $fields) ? 1 : 0;
+        }
+
+        $subscription->save();
+    }
+
     public function delete($id) {
         echo $id; die;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getSubscription($id) {
+        return Subscription::find($id);
     }
 
     /**

@@ -69968,6 +69968,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -69986,7 +69987,17 @@ __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.options.closeButton = true;
 
     data: function data() {
         return {
-            editing: false
+            loading: false,
+            editing: false,
+            debugValue: this.debug,
+            warningValue: this.warning,
+            criticalValue: this.critical,
+            emailValue: this.email,
+            pushValue: this.push,
+            smsValue: this.sms,
+            alertsValue: this.alerts,
+            hourlyValue: this.hourly,
+            dailyValue: this.daily
         };
     },
 
@@ -70027,8 +70038,26 @@ __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.options.closeButton = true;
                 this.editing = false;
             }
         },
-        saveState: function saveState() {
-            __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.error("<font-awesome-icon :icon='warningIcon' /> Test.");
+        saveState: function saveState(id) {
+            var _this = this;
+
+            var inputArray = {};
+
+            $('#sub-form-' + id).find('input:checkbox:checked').each(function () {
+                var parsedId = $(this).attr('id').replace('-' + id, "");
+                inputArray[parsedId] = $(this).val();
+            });
+
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.put('/subscriptions/edit/' + id, {
+                data: inputArray
+            }).then(function (response) {
+                if (response.status === 200) {
+                    __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.success("<font-awesome-icon :icon='checkIcon' /> Subscription saved.");
+                    _this.getModifiedSubscription(id);
+                }
+            }).catch(function (error) {
+                __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.error("<font-awesome-icon :icon='warningIcon' />" + error + ".");
+            });
         },
         deleteState: function deleteState(id) {
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post('/subscription/delete/' + id).then(function (response) {
@@ -70036,6 +70065,26 @@ __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.options.closeButton = true;
                 console.log(response);
             }).catch(function (error) {
                 __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.error("<font-awesome-icon :icon='warningIcon' />" + error + ".");
+            });
+        },
+        getModifiedSubscription: function getModifiedSubscription(id) {
+            var _this2 = this;
+
+            this.loading = true;
+            __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/subscriptions/single/' + id).then(function (response) {
+                _this2.debugValue = response.data.debug;
+                _this2.warningValue = response.data.warning;
+                _this2.criticalValue = response.data.critical;
+                _this2.emailValue = response.data.email;
+                _this2.pushValue = response.data.push;
+                _this2.smsValue = response.data.sms;
+                _this2.alertsValue = response.data.alerts;
+                _this2.hourlyValue = response.data.hourly;
+                _this2.dailyValue = response.data.daily;
+                _this2.loading = false;
+                _this2.editing = false;
+            }).catch(function (error) {
+                console.log(error);
             });
         },
         parsedCreationDate: function parsedCreationDate(date) {
@@ -70320,7 +70369,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", { attrs: { action: "" } }, [
+  return _c("form", { attrs: { id: "sub-form-" + _vm.id } }, [
     _c(
       "div",
       { staticClass: "row text-center", staticStyle: { padding: "12px 0" } },
@@ -70330,7 +70379,13 @@ var render = function() {
             _c("div", { staticClass: "col" }, [
               _c("span", { staticClass: "title" }, [
                 _vm._v(_vm._s(_vm.service_id))
-              ])
+              ]),
+              _vm._v(" "),
+              _vm.loading
+                ? _c("span", [
+                    _c("img", { attrs: { src: "images/loader_x25.svg" } })
+                  ])
+                : _vm._e()
             ])
           ])
         ]),
@@ -70348,7 +70403,7 @@ var render = function() {
               _c("div", { staticClass: "col list__item" }, [
                 !_vm.editing
                   ? _c("div", [
-                      _vm.debug === 1
+                      _vm.debugValue === 1
                         ? _c(
                             "span",
                             [
@@ -70372,8 +70427,12 @@ var render = function() {
                     ])
                   : _c("div", [
                       _c("input", {
-                        attrs: { type: "checkbox", id: "debug-" + _vm.id },
-                        domProps: { checked: _vm.debug === 1 }
+                        attrs: {
+                          type: "checkbox",
+                          value: "1",
+                          id: "debug-" + _vm.id
+                        },
+                        domProps: { checked: _vm.debugValue === 1 }
                       })
                     ])
               ]),
@@ -70381,7 +70440,7 @@ var render = function() {
               _c("div", { staticClass: "col list__item" }, [
                 !_vm.editing
                   ? _c("div", [
-                      _vm.warning === 1
+                      _vm.warningValue === 1
                         ? _c(
                             "span",
                             [
@@ -70405,8 +70464,12 @@ var render = function() {
                     ])
                   : _c("div", [
                       _c("input", {
-                        attrs: { type: "checkbox", id: "warning-" + _vm.id },
-                        domProps: { checked: _vm.warning === 1 }
+                        attrs: {
+                          type: "checkbox",
+                          value: "1",
+                          id: "warning-" + _vm.id
+                        },
+                        domProps: { checked: _vm.warningValue === 1 }
                       })
                     ])
               ]),
@@ -70414,7 +70477,7 @@ var render = function() {
               _c("div", { staticClass: "col list__item" }, [
                 !_vm.editing
                   ? _c("div", [
-                      _vm.critical === 1
+                      _vm.criticalValue === 1
                         ? _c(
                             "span",
                             [
@@ -70438,8 +70501,12 @@ var render = function() {
                     ])
                   : _c("div", [
                       _c("input", {
-                        attrs: { type: "checkbox", id: "critical-" + _vm.id },
-                        domProps: { checked: _vm.critical === 1 }
+                        attrs: {
+                          type: "checkbox",
+                          value: "1",
+                          id: "critical-" + _vm.id
+                        },
+                        domProps: { checked: _vm.criticalValue === 1 }
                       })
                     ])
               ]),
@@ -70447,7 +70514,7 @@ var render = function() {
               _c("div", { staticClass: "col list__item" }, [
                 !_vm.editing
                   ? _c("div", [
-                      _vm.email === 1
+                      _vm.emailValue === 1
                         ? _c(
                             "span",
                             [
@@ -70471,8 +70538,12 @@ var render = function() {
                     ])
                   : _c("div", [
                       _c("input", {
-                        attrs: { type: "checkbox", id: "email-" + _vm.id },
-                        domProps: { checked: _vm.email === 1 }
+                        attrs: {
+                          type: "checkbox",
+                          value: "1",
+                          id: "email-" + _vm.id
+                        },
+                        domProps: { checked: _vm.emailValue === 1 }
                       })
                     ])
               ]),
@@ -70480,7 +70551,7 @@ var render = function() {
               _c("div", { staticClass: "col list__item" }, [
                 !_vm.editing
                   ? _c("div", [
-                      _vm.push === 1
+                      _vm.pushValue === 1
                         ? _c(
                             "span",
                             [
@@ -70504,8 +70575,12 @@ var render = function() {
                     ])
                   : _c("div", [
                       _c("input", {
-                        attrs: { type: "checkbox", id: "push-" + _vm.id },
-                        domProps: { checked: _vm.push === 1 }
+                        attrs: {
+                          type: "checkbox",
+                          value: "1",
+                          id: "push-" + _vm.id
+                        },
+                        domProps: { checked: _vm.pushValue === 1 }
                       })
                     ])
               ]),
@@ -70513,7 +70588,7 @@ var render = function() {
               _c("div", { staticClass: "col list__item" }, [
                 !_vm.editing
                   ? _c("div", [
-                      _vm.sms === 1
+                      _vm.smsValue === 1
                         ? _c(
                             "span",
                             [
@@ -70537,8 +70612,12 @@ var render = function() {
                     ])
                   : _c("div", [
                       _c("input", {
-                        attrs: { type: "checkbox", id: "sms-" + _vm.id },
-                        domProps: { checked: _vm.sms === 1 }
+                        attrs: {
+                          type: "checkbox",
+                          value: "1",
+                          id: "sms-" + _vm.id
+                        },
+                        domProps: { checked: _vm.smsValue === 1 }
                       })
                     ])
               ]),
@@ -70546,7 +70625,7 @@ var render = function() {
               _c("div", { staticClass: "col list__item" }, [
                 !_vm.editing
                   ? _c("div", [
-                      _vm.alerts === 1
+                      _vm.alertsValue === 1
                         ? _c(
                             "span",
                             [
@@ -70570,8 +70649,12 @@ var render = function() {
                     ])
                   : _c("div", [
                       _c("input", {
-                        attrs: { type: "checkbox", id: "alerts-" + _vm.id },
-                        domProps: { checked: _vm.alerts === 1 }
+                        attrs: {
+                          type: "checkbox",
+                          value: "1",
+                          id: "alerts-" + _vm.id
+                        },
+                        domProps: { checked: _vm.alertsValue === 1 }
                       })
                     ])
               ]),
@@ -70579,7 +70662,7 @@ var render = function() {
               _c("div", { staticClass: "col list__item" }, [
                 !_vm.editing
                   ? _c("div", [
-                      _vm.hourly === 1
+                      _vm.hourlyValue === 1
                         ? _c(
                             "span",
                             [
@@ -70604,9 +70687,12 @@ var render = function() {
                   : _c("div", [
                       _c("div", { staticClass: "form-check" }, [
                         _c("input", {
-                          staticClass: "form-check-input",
-                          attrs: { type: "checkbox", id: "hourly-" + _vm.id },
-                          domProps: { checked: _vm.hourly === 1 }
+                          attrs: {
+                            type: "checkbox",
+                            value: "1",
+                            id: "hourly-" + _vm.id
+                          },
+                          domProps: { checked: _vm.hourlyValue === 1 }
                         })
                       ])
                     ])
@@ -70615,7 +70701,7 @@ var render = function() {
               _c("div", { staticClass: "col list__item" }, [
                 !_vm.editing
                   ? _c("div", [
-                      _vm.daily === 1
+                      _vm.dailyValue === 1
                         ? _c(
                             "span",
                             [
@@ -70639,8 +70725,12 @@ var render = function() {
                     ])
                   : _c("div", [
                       _c("input", {
-                        attrs: { type: "checkbox", id: "daily-" + _vm.id },
-                        domProps: { checked: _vm.daily === 1 }
+                        attrs: {
+                          type: "checkbox",
+                          value: "1",
+                          id: "daily-" + _vm.id
+                        },
+                        domProps: { checked: _vm.dailyValue === 1 }
                       })
                     ])
               ])
@@ -70715,8 +70805,20 @@ var render = function() {
                           staticClass: "btn btn-dark",
                           on: {
                             click: function($event) {
+                              if (
+                                !("button" in $event) &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "submit",
+                                  undefined,
+                                  $event.key,
+                                  undefined
+                                )
+                              ) {
+                                return null
+                              }
                               $event.preventDefault()
-                              _vm.saveState()
+                              _vm.saveState(_vm.id)
                             }
                           }
                         },
