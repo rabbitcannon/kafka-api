@@ -9,7 +9,7 @@
 
         <div class="__content">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col">
                     <h6>
                         {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                     </h6>
@@ -17,19 +17,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-1 border-right">
+                <div class="col-2 border-right">
                     Email
                 </div>
-                <div class="col-md-3">
+                <div class="col">
                     {{ Auth::user()->email }}
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-1 border-right">
+                <div class="col-2 border-right">
                     Phone/SMS
                 </div>
-                <div class="col-md-3">
-                    {{ Auth::user()->profile->phone }}
+                <div class="col">
+                    {{ @Auth::user()->profile->phone }}
                 </div>
             </div>
         </div>
