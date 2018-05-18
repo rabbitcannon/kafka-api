@@ -29,7 +29,11 @@
                     Phone/SMS
                 </div>
                 <div class="col">
-                    {{ @Auth::user()->profile->phone }}
+                    @if(!empty(Auth::user()->profile->phone))
+                        {{ Auth::user()->profile->phone }}
+                    @else
+                        Not provided, update your profile.
+                    @endif
                 </div>
             </div>
         </div>
