@@ -243,12 +243,7 @@
 
         methods: {
             editState() {
-                if(this.editing === false) {
-                    this.editing = true;
-                }
-                else {
-                    this.editing = false;
-                }
+                let toggle = this.editing === false ? this.editing = true : this.editing = false;
             },
             saveState(id) {
                 var inputArray = {};

@@ -4,9 +4,9 @@ use App\AlertFrequency;
 use App\AlertMethod;
 use App\AlertType;
 use App\Http\Resources\AlertMethodCollection;
-use App\Http\Resources\SubscriptionCollection;
+use App\Http\Resources\UserCollection;
 use App\Service;
-use App\Subscription;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Resources\AlertTypeCollection;
 use App\Http\Resources\ServiceCollection;
@@ -28,7 +28,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 /*
- * One-offs
+ * Users
+ */
+//-- All
+Route::get('/users', function() {
+    return new UserCollection(User::all());
+});
+
+//-- Single
+Route::group(['prefix' => 'user'], function() {
+    Route::get('/{id}', function($id) {
+        return User::with('profile')->find($id);
+    });
+});
+
+/*
+ * Alerts
  */
 Route::group(['prefix' => 'alerts'], function() {
     Route::get('/frequency', function() {

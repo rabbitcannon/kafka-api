@@ -35,6 +35,13 @@ Route::group(['middleware' => 'auth'], function() {
     });
 
     /*
+     * User operations
+     */
+    Route::group(['prefix' => '/user'], function() {
+        Route::put('/{id}/edit', 'UserController@edit');
+    });
+
+    /*
      * Subscription CRUD operations
      */
     Route::group(['prefix' => '/subscriptions'], function() {

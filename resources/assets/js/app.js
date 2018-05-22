@@ -14,10 +14,10 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('service-results', require('./components/services/Alerts.vue'));
 Vue.component('kafka-topics', require('./components/topics/KafkaTopics.vue'));
 Vue.component('subscription-list', require('./components/subscriptions/ListCurrent.vue'));
+Vue.component('profile-view', require('./components/profile/ProfileView.vue'));
 
 const app = new Vue({
     el: '#app',
