@@ -66834,6 +66834,9 @@ __WEBPACK_IMPORTED_MODULE_1_toastr___default.a.options.closeButton = true;
                 });
             }
         },
+        resetForm: function resetForm() {
+            $('#add-sub-form')[0].reset();
+        },
         getServices: function getServices() {
             return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/services/all');
         },
@@ -69075,9 +69078,9 @@ var staticRenderFns = [
               "button",
               {
                 staticClass: "btn btn-secondary btn-sm",
-                attrs: { type: "button" }
+                attrs: { type: "reset" }
               },
-              [_vm._v("Cancel")]
+              [_vm._v("Reset")]
             )
           ])
         ])

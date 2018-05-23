@@ -70,7 +70,7 @@
                 <div class="col-md-12">
                     <div class="float-right">
                         <button type="submit" class="btn btn-primary btn-sm" id="subscribe-btn">Subscribe</button>
-                        <button type="button" class="btn btn-secondary btn-sm">Cancel</button>
+                        <button type="reset" class="btn btn-secondary btn-sm">Reset</button>
                     </div>
                 </div>
             </div>
@@ -156,6 +156,9 @@
 					});
                 }
 			},
+            resetForm() {
+                $('#add-sub-form')[0].reset();
+            },
             getServices() {
                 return Axios.get('/api/services/all');
             },
