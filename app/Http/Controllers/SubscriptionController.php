@@ -102,7 +102,8 @@ class SubscriptionController extends Controller
     }
 
     public function delete($id) {
-        echo $id; die;
+        $sub = Subscription::find($id);
+        $sub->delete();
     }
 
     /**

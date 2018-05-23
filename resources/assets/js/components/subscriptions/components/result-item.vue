@@ -157,7 +157,8 @@
                             <button class="btn btn-dark" v-on:click.prevent="editState()">
                                 <font-awesome-icon :icon="editIcon"/> Edit
                             </button>
-                            <button class="btn btn-danger" v-on:click.prevent="deleteState(id)">
+                            <!--<button class="btn btn-danger" v-on:click.prevent="deleteState(id)">-->
+                            <button class="btn btn-danger" v-on:click.prevent="modalShow = !modalShow">
                                 <font-awesome-icon :icon="deleteIcon"/> Delete
                             </button>
                         </div>
@@ -174,6 +175,29 @@
             </div>
         </div>
 
+        <!--<confirm-delete v-bind:sub_id="id" v-bind:modalShow="modalShow"></confirm-delete>-->
+        <div>
+            <b-modal v-model="modalShow" title="Are you sure?" @ok="deleteState(id)">
+                Do you wish to confirm deletion of subscription ID: {{ id }}
+                <div slot="modal-footer" class="w-100">
+                    <b-container fluid>
+                        <b-row>
+                            <b-col cols="3"></b-col>
+                            <b-col cols="6">
+                                <b-btn size="md" class="btn btn-dark" v-on:click.prevent="deleteState(id)">
+                                    <font-awesome-icon :icon="deleteIcon"/> Delete
+                                </b-btn>
+                                <b-btn size="md" class="btn btn-danger" v-on:click.prevent="modalShow = !modalShow">
+                                    <font-awesome-icon :icon="cancelIcon"/> Cancel
+                                </b-btn>
+                            </b-col>
+                            <b-col colse="3"></b-col>
+                        </b-row>
+                    </b-container>
+
+                </div>
+            </b-modal>
+        </div>
     </form>
 </template>
 
@@ -184,6 +208,9 @@
     import { faCheck, faExclamationTriangle, faPencilAlt,
         faTrashAlt, faTimes, faBan, faSave } from '@fortawesome/fontawesome-free-solid';
     import Moment from 'moment';
+    import { button, modal, layout } from 'bootstrap-vue/es/components';
+
+    // import ConfirmDelete from './confirm-delete.vue'
 
     Toastr.options.closeMethod = 'fadeOut';
     Toastr.options.showMethod = 'fadeIn';
@@ -210,11 +237,13 @@
                 alertsValue: this.alerts,
                 hourlyValue: this.hourly,
                 dailyValue: this.daily,
+                modalShow: false
             }
         },
 
         components: {
-            FontAwesomeIcon
+            FontAwesomeIcon,
+            // ConfirmDelete
         },
 
         computed: {
@@ -265,9 +294,10 @@
                 });
             },
             deleteState(id) {
-                Axios.post('/subscription/delete/' + id).then((response) => {
+                Axios.post('/subscriptions/delete/' + id).then(() => {
                     Toastr.success("<font-awesome-icon :icon='checkIcon' /> Subscription has been deleted.");
-                    console.log(response);
+                    this.modalShow = false;
+                    location.reload();
                 }).catch((error) => {
                     Toastr.error("<font-awesome-icon :icon='warningIcon' />" + error + ".");
                 });
