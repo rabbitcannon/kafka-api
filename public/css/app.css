@@ -10421,6 +10421,12 @@ button:focus {
   outline: 0 !important;
 }
 
+.small-label {
+  color: #ccc;
+  display: none;
+  font-style: italic;
+}
+
 .title {
   font-size: 1.39em;
   font-weigt: 600;
@@ -10503,5 +10509,24 @@ h6 {
 
 .container.\--section .__content div.input-container {
   margin-left: 7px;
+}
+
+/**
+  Table of Contents
+  ------------------------
+  UC01 - Table Changes
+**/
+
+/** UC01 Container Layout
+ ===================== **/
+
+.sub-list th svg {
+  color: #CCC;
+  cursor: pointer;
+  font-size: 1.65em;
+}
+
+.sub-list.table td {
+  padding: .25em;
 }
 

@@ -3,7 +3,6 @@
         <div class="form-check d-inline"  v-for="frequency of frequencies">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">{{ frequency.name}}</label>
-            <!--{{serviceId}}-->
         </div>
     </div>
 </template>
@@ -12,8 +11,6 @@
     import Axios from 'axios';
 
     export default {
-        // props: ['service-id'],
-
         data() {
             return {
                 frequencies: [],

@@ -1,0 +1,22 @@
+/**
+  Table of Contents
+  ------------------------
+  UC01 - Table Changes
+**/
+
+
+/** UC01 Container Layout
+ ===================== **/
+
+.sub-list {
+  th {
+    svg {
+      color: #CCC;
+      cursor: pointer;
+      font-size: 1.65em;
+    }
+  }
+  &.table td {
+    padding: .25em;
+  }
+}

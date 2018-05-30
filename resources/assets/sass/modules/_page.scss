@@ -13,6 +13,12 @@ button:focus {
   outline: 0 !important;
 }
 
+.small-label {
+  color: #ccc;
+  display: none;
+  font-style: italic;
+}
+
 .title {
   font-size: 1.39em;
   font-weigt: 600;

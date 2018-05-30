@@ -2,14 +2,18 @@
     <form v-bind:id="'sub-form-' + id">
         <div class="row text-center" style="padding: 12px 0;">
             <div class="container">
-                <div class="row border-bottom text-left">
-                    <div class="col">
-                        <span class="title">{{ service_id }}</span> <span v-if="loading"><img src="images/loader_x25.svg"/></span>
+                <div class="row text-left">
+                    <div class="col-3">
+                        <span style="text-decoration: underline;" class="title">{{ service_id }}</span>
+                        &nbsp;<span v-if="loading"><img src="images/loader_x25.svg"/></span>
+                    </div>
+                    <div class="col text-right">
+                        <small class="lean">Updated on: {{ parsedCreationDate(updated_at) }}</small>
                     </div>
                 </div>
             </div>
 
-            <div class="container" style="padding-top: 25px;">
+            <div class="container">
                 <div class="row list">
                     <div class="col list__item">Debug</div>
                     <div class="col list__item">Warning</div>
@@ -23,7 +27,8 @@
                 </div>
             </div>
 
-            <div class="container" style="padding-bottom: 25px;">
+
+            <div class="container">
                 <div class="row list">
                     <div class="col list__item">
                         <div v-if="!editing">
@@ -148,25 +153,21 @@
             </div>
 
             <div class="container">
-                <div class="row border-top ">
-                    <div class="col text-left">
-                        <small class="lean">Updated on: {{ parsedCreationDate(updated_at) }}</small>
-                    </div>
+                <div class="row">
                     <div class="col text-right" style="padding-top: 12px;">
                         <div v-if="!editing">
-                            <button class="btn btn-dark" v-on:click.prevent="editState()">
+                            <button class="btn btn-sm btn-dark" v-on:click.prevent="editState()">
                                 <font-awesome-icon :icon="editIcon"/> Edit
                             </button>
-                            <!--<button class="btn btn-danger" v-on:click.prevent="deleteState(id)">-->
-                            <button class="btn btn-danger" v-on:click.prevent="modalShow = !modalShow">
+                            <button class="btn btn-sm btn-danger" v-on:click.prevent="modalShow = !modalShow">
                                 <font-awesome-icon :icon="deleteIcon"/> Delete
                             </button>
                         </div>
                         <div v-else>
-                            <button class="btn btn-dark" v-on:click.submit.prevent="saveState(id)">
+                            <button class="btn btn-sm btn-dark" v-on:click.submit.prevent="saveState(id)">
                                 <font-awesome-icon :icon="saveIcon"/> Save
                             </button>
-                            <button class="btn btn-danger" v-on:click.prevent="editState()">
+                            <button class="btn btn-sm btn-danger" v-on:click.prevent="editState()">
                                 <font-awesome-icon :icon="cancelIcon"/> Cancel
                             </button>
                         </div>
@@ -175,29 +176,27 @@
             </div>
         </div>
 
-        <!--<confirm-delete v-bind:sub_id="id" v-bind:modalShow="modalShow"></confirm-delete>-->
-        <div>
-            <b-modal v-model="modalShow" title="Are you sure?" @ok="deleteState(id)">
+        <b-modal v-model="modalShow" title="Are you sure?" @ok="deleteState(id)">
+            <div>
                 Do you wish to confirm deletion of subscription ID: {{ id }}
-                <div slot="modal-footer" class="w-100">
-                    <b-container fluid>
-                        <b-row>
-                            <b-col cols="3"></b-col>
-                            <b-col cols="6">
-                                <b-btn size="md" class="btn btn-dark" v-on:click.prevent="deleteState(id)">
-                                    <font-awesome-icon :icon="deleteIcon"/> Delete
-                                </b-btn>
-                                <b-btn size="md" class="btn btn-danger" v-on:click.prevent="modalShow = !modalShow">
-                                    <font-awesome-icon :icon="cancelIcon"/> Cancel
-                                </b-btn>
-                            </b-col>
-                            <b-col colse="3"></b-col>
-                        </b-row>
-                    </b-container>
-
-                </div>
-            </b-modal>
-        </div>
+            </div>
+            <div slot="modal-footer" class="w-100">
+                <b-container fluid>
+                    <b-row>
+                        <b-col cols="3"></b-col>
+                        <b-col cols="6">
+                            <b-btn size="md" class="btn btn-dark" v-on:click.prevent="deleteState(id)">
+                                <font-awesome-icon :icon="deleteIcon"/> Delete
+                            </b-btn>
+                            <b-btn size="md" class="btn btn-danger" v-on:click.prevent="modalShow = !modalShow">
+                                <font-awesome-icon :icon="cancelIcon"/> Cancel
+                            </b-btn>
+                        </b-col>
+                        <b-col colse="3"></b-col>
+                    </b-row>
+                </b-container>
+            </div>
+        </b-modal>
     </form>
 </template>
 
