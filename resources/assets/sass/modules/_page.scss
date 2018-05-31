@@ -4,6 +4,7 @@
   UC01 - General Elements
   UC02 - Page Fade Elements
   UC03 - Overall Page Elements
+  UC04 - Text Elements
 **/
 
 /** UC01 General Elements
@@ -11,32 +12,6 @@
 
 button:focus {
   outline: 0 !important;
-}
-
-.small-label {
-  color: #ccc;
-  display: none;
-  font-style: italic;
-}
-
-.title {
-  font-size: 1.39em;
-  font-weigt: 600;
-}
-
-.alert {
-  &.error {
-    position: absolute;
-    margin-left: 29%;
-    margin-top: -116px;
-    z-index: 998;
-  }
-}
-
-
-.lean {
-  color: #6e6e6e;
-  font-style: italic;
 }
 
 .list {
@@ -81,4 +56,42 @@ button:focus {
 h6 {
   font-size: 1rem;
   font-weight: bold;
+}
+
+/** UC04 Text Elements
+ ===================== **/
+
+
+.small-label {
+  color: #ccc;
+  display: none;
+  font-style: italic;
+}
+
+.title {
+  font-size: 1.39em;
+  font-weigt: 600;
+}
+
+.error {
+  background-color: #f8d7da;
+  border: 1px solid transparent;
+  border-color: #f5c6cb;
+  border-radius: 0.25rem;
+  color: #721c24;
+  padding: 0.2em;
+
+
+}
+
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+.lean {
+  color: #6e6e6e;
+  font-style: italic;
 }

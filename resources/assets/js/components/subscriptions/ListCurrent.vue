@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <div class="container --section">
             <div class="__header">
                 <div>
@@ -21,11 +20,11 @@
                                 <div style="float: right;">
                                     <a id="toggle-subs" v-on:click="togglePanel()">
                                         <div v-if="panelState">
-                                            <font-awesome-icon :icon='arrowDoubleDown' />
+                                            <font-awesome-icon :icon='arrowDoubleUp' />
                                         </div>
                                         <div v-else>
                                             <small class="small-label">( results hidden )</small>
-                                            &nbsp;<font-awesome-icon :icon='arrowDoubleUp' />
+                                            &nbsp;<font-awesome-icon :icon='arrowDoubleDown' />
                                         </div>
                                     </a>
                                 </div>
@@ -80,6 +79,7 @@
 
         methods: {
             getSubscriptions() {
+                console.log("Test");
                 this.loading = true;
                 Axios.get('/subscriptions/list').then((response) => {
                     this.subs = response.data;

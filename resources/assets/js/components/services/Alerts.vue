@@ -1,9 +1,8 @@
 <template>
     <div>
-        <subscription-list></subscription-list>
+        <subscription-list ref="subsList"></subscription-list>
 
-        <!--<form id="add-sub-form" v-on:submit.prevent="addSubscription" action="/subscriptions/create" method="post">-->
-        <form id="add-sub-form" class="needs-validation" novalidate v-on:submit.prevent="addSubscription" action="/subscriptions/create" method="post">
+        <form id="add-sub-form" v-on:submit.prevent="addSubscription()" action="/subscriptions/create" method="post">
             <div class="container --section">
                 <div class="__header">
                     <div>
@@ -52,26 +51,35 @@
                                                 {{ alert_type.name }}&nbsp;
                                             </label>
                                         </div>
+                                        <div v-bind:id="'error_type-' + service.id" class="hidden">
+                                            <small>Please select at least one alert type.</small>
+                                        </div>
                                     </div>
                                 </td>
                                 <td class="text-center">
-                                    <div class="input-container">
+                                    <div v-bind:id="'alert_method_container-' + service.id" class="input-container">
                                         <div class="form-check d-inline" v-for="alert_method of alert_methods">
                                             <input type="checkbox" class="form-check-input" name="method[]" v-bind:id="alert_method.name.toLowerCase() + '_' + service.id">
                                             <label class="form-check-label" :for="alert_method.name.toLowerCase() + '_' + service.id">
                                                 {{ alert_method.name }}&nbsp;
                                             </label>
                                         </div>
+                                        <div v-bind:id="'error_method-' + service.id" class="hidden">
+                                            <small>Please select at least one alert method.</small>
+                                        </div>
                                     </div>
                                 </td>
                                 <td class="text-center">
-                                    <div class="input-container">
+                                    <div v-bind:id="'alert_frequency_container-' + service.id" class="input-container">
                                         <div class="form-check d-inline" v-for="alert_frequency of alert_frequencies">
                                             <input type="checkbox" class="form-check-input" name="frequency[]"
                                                    v-bind:id="alert_frequency.name.toLowerCase().replace(/\s/g,'') + '_' + service.id">
                                             <label class="form-check-label" :for="alert_frequency.name.toLowerCase().replace(/\s/g,'_') + '_' + service.id">
                                                 {{ alert_frequency.name }}&nbsp;
                                             </label>
+                                        </div>
+                                        <div v-bind:id="'error_frequency-' + service.id" class="hidden">
+                                            <small>Please select at least one alert frequency.</small>
                                         </div>
                                     </div>
                                 </td>
@@ -139,6 +147,7 @@
 
                 serviceDivs.each(function() {
                     let $row = $(this).attr('id');
+                    let currentId = $row.replace("service-row-", "");
                     let subscription = [];
 
                     $('#' + $row).each(function() {
@@ -149,11 +158,44 @@
                         });
 					});
                     if(subscription.length > 0) {
-                        subscriptionArray.push(subscription);
+                        let concatTail = currentId + ' input:checked';
+                        let typeChecked =  $('div#alert_type_container-' + concatTail).length > 0;
+                        let methodChecked =  $('div#alert_method_container-' + concatTail).length > 0;
+                        let frequencyChecked =  $('div#alert_frequency_container-' + concatTail).length > 0;
+
+                        if(typeChecked) {
+                            $('div#alert_type_container-' + currentId).removeClass("error");
+                            $('div#error_type-' + currentId).addClass("hidden");
+                        }
+                        else {
+                            $('div#alert_type_container-' + currentId).addClass("error");
+                            $('div#error_type-' + currentId).removeClass("hidden");
+                        }
+
+                        if(methodChecked) {
+                            $('div#alert_method_container-' + currentId).removeClass("error");
+                            $('div#error_method-' + currentId).addClass("hidden");
+                        }
+                        else {
+                            $('div#alert_method_container-' + currentId).addClass("error");
+                            $('div#error_method-' + currentId).removeClass("hidden");
+                        }
+
+                        if(frequencyChecked) {
+                            $('div#alert_frequency_container-' + currentId).removeClass("error");
+                            $('div#error_frequency-' + currentId).addClass("hidden");
+                        }
+                        else {
+                            $('div#alert_frequency_container-' + currentId).addClass("error");
+                            $('div#error_frequency-' + currentId).removeClass("hidden");
+                        }
+
+                        if(typeChecked && methodChecked && frequencyChecked) {
+                            subscriptionArray.push(subscription);
+                        }
                     }
                 });
-console.log(subscriptionArray);
-console.log(subscriptionArray.indexOf('debug_1'));
+
                 if(subscriptionArray === undefined || subscriptionArray.length === 0) {
 					$('#subscribe-btn').html('Subscribe');
 
@@ -162,16 +204,15 @@ console.log(subscriptionArray.indexOf('debug_1'));
                     }, 500)
                 }
                 else {
-                    console.log('Saved');
-					// Axios.post('/subscriptions/create', {
-					// 	data: subscriptionArray
-					// }).then(() => {
-					//     Toastr.success("<font-awesome-icon :icon='checkIcon' /> Subscription saved.");
-					// 	$('form#add-sub-form').trigger('reset');
-                     //    $('button#subscribe-btn').html('Subscribe');
-					// }).catch((error) => {
-					// 	console.log(error);
-					// });
+					Axios.post('/subscriptions/create', {
+						data: subscriptionArray
+					}).then(() => {
+					    Toastr.success("<font-awesome-icon :icon='checkIcon' /> Subscription saved.");
+						$('form#add-sub-form').trigger('reset');
+					}).catch((error) => {
+						console.log(error);
+					});
+                    $('button#subscribe-btn').html('Subscribe');
                 }
 			},
             resetForm() {
@@ -188,7 +229,7 @@ console.log(subscriptionArray.indexOf('debug_1'));
             },
             getAlertFrequency() {
                 return Axios.get('/api/alerts/frequency');
-            }
+            },
         },
 
         created() {
