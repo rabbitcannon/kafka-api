@@ -274,7 +274,7 @@
                 let toggle = this.editing === false ? this.editing = true : this.editing = false;
             },
             saveState(id) {
-                var inputArray = {};
+                let inputArray = {};
 
                 $('#sub-form-' +id).find('input:checkbox:checked').each(function() {
                     let parsedId = $(this).attr('id').replace('-' + id, "");
@@ -300,9 +300,11 @@
                 }).catch((error) => {
                     Toastr.error("<font-awesome-icon :icon='warningIcon' />" + error + ".");
                 });
+                this.$parent.$options.methods.getSubscriptions();
             },
             getModifiedSubscription(id) {
                 this.loading = true;
+
                 Axios.get('/subscriptions/single/' + id).then((response) => {
                     this.debugValue = response.data.debug;
                     this.warningValue =  response.data.warning;

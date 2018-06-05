@@ -32,8 +32,28 @@
                         </tr>
                     </thead>
 
-                    <tbody>
-                        <tr v-for="sub of subs">
+                    <tbody v-if="loading">
+                        <tr>
+                            <td colspan="4">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <img src="images/loader_x64.svg"/>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tbody v-else>
+                        <tr v-if="noResults">
+                            <td class="text-center">
+                                <div style="padding: 20px 0;">
+                                    You currently have no subscriptions.
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr v-for="sub of subs" v-else>
                             <result-item v-bind:id="sub.id" v-bind:service_id="sub.service_id" v-bind:debug="sub.debug"
                                          v-bind:warning="sub.warning" v-bind:critical="sub.critical" v-bind:email="sub.email"
                                          v-bind:push="sub.push" v-bind:sms="sub.sms" v-bind:alerts="sub.alerts"
@@ -79,11 +99,12 @@
 
         methods: {
             getSubscriptions() {
-                console.log("Test");
                 this.loading = true;
+
                 Axios.get('/subscriptions/list').then((response) => {
                     this.subs = response.data;
                     this.loading = false;
+
                     if(!response.data.length) {
                         this.noResults = true;
                     }

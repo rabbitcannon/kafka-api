@@ -6,6 +6,7 @@ use App\AlertType;
 use App\Http\Resources\AlertMethodCollection;
 use App\Http\Resources\UserCollection;
 use App\Service;
+use App\Subscription;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Resources\AlertTypeCollection;

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <subscription-list ref="subsList"></subscription-list>
+        <subscription-list ref="updateSubs"></subscription-list>
 
         <form id="add-sub-form" v-on:submit.prevent="addSubscription()" action="/subscriptions/create" method="post">
             <div class="container --section">
@@ -141,9 +141,11 @@
 
         methods: {
             addSubscription() {
-                $('button#subscribe-btn').html('<img src="images/loader_x14w.svg"/> Saving...');
+                let subButton = $('button#subscribe-btn');
                 let serviceDivs = $("tr[name='service_row']");
 				let subscriptionArray = [];
+
+                subButton.html('<img src="images/loader_x14w.svg"/> Saving...');
 
                 serviceDivs.each(function() {
                     let $row = $(this).attr('id');
@@ -157,6 +159,7 @@
                             });
                         });
 					});
+
                     if(subscription.length > 0) {
                         let concatTail = currentId + ' input:checked';
                         let typeChecked =  $('div#alert_type_container-' + concatTail).length > 0;
@@ -197,7 +200,7 @@
                 });
 
                 if(subscriptionArray === undefined || subscriptionArray.length === 0) {
-					$('#subscribe-btn').html('Subscribe');
+					subButton.html('Subscribe');
 
 					setTimeout(function() {
                         Toastr.error("<font-awesome-icon :icon='faExclamationTriangle' /> You need to set subscription items.");
@@ -212,14 +215,18 @@
 					}).catch((error) => {
 						console.log(error);
 					});
-                    $('button#subscribe-btn').html('Subscribe');
+
+                    subButton.html('Subscribe');
+                    location.reload();
+                    // this.$refs.updateSubs.getSubscriptions();
                 }
 			},
             resetForm() {
                 $('#add-sub-form')[0].reset();
             },
             getServices() {
-                return Axios.get('/api/services/all');
+                // return Axios.get('/api/services/all');
+                return Axios.get('/services/all');
             },
             getAlertTypes() {
                 return Axios.get('/api/alerts/types');
@@ -230,19 +237,23 @@
             getAlertFrequency() {
                 return Axios.get('/api/alerts/frequency');
             },
+            getFullList() {
+                this.loading = true;
+
+                Axios.all([
+                    this.getServices(), this.getAlertTypes(), this.getAlertMethods(), this.getAlertFrequency()
+                ]).then(Axios.spread((servicesResults, alertTypeResults, alertMethodsResults, alertFrequencyResults) => {
+                    this.services = servicesResults.data;
+                    this.alert_types = alertTypeResults.data.data;
+                    this.alert_methods = alertMethodsResults.data.data;
+                    this.alert_frequencies = alertFrequencyResults.data.data;
+                    this.loading = false;
+                }));
+            }
         },
 
         created() {
-			this.loading = true;
-            Axios.all([
-                this.getServices(), this.getAlertTypes(), this.getAlertMethods(), this.getAlertFrequency()
-            ]).then(Axios.spread((servicesResults, alertTypeResults, alertMethodsResults, alertFrequencyResults) => {
-                this.services = servicesResults.data.data;
-                this.alert_types = alertTypeResults.data.data;
-                this.alert_methods = alertMethodsResults.data.data;
-                this.alert_frequencies = alertFrequencyResults.data.data;
-                this.loading = false;
-            }));
+            this.getFullList();
         },
     }
 </script>

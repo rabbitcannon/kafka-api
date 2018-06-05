@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\AlertFrequency;
 use App\AlertMethod;
 use App\AlertType;
+use App\Service;
 use App\Subscription;
 use Illuminate\Http\Request;
 
@@ -101,6 +102,9 @@ class SubscriptionController extends Controller
         $subscription->save();
     }
 
+    /**
+     * @param $id
+     */
     public function delete($id) {
         $sub = Subscription::find($id);
         $sub->delete();
@@ -119,5 +123,14 @@ class SubscriptionController extends Controller
      */
     public function listSubscriptions() {
         return json_encode(Subscription::where('user_id', $this->user->id)->get());
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubsNotSubscribed() {
+        $services = Subscription::where('user_id', $this->user->id)->pluck('service_id');
+        $current = Service::whereNotIn('name', $services)->get();
+        return json_decode($current);
     }
 }

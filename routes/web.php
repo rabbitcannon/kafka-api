@@ -55,4 +55,11 @@ Route::group(['middleware' => 'auth'], function() {
         Route::post('/create', 'SubscriptionController@create');
         Route::post('/delete/{id}', 'SubscriptionController@delete');
     });
+
+    /*
+ * Services
+ */
+    Route::group(['prefix' => 'services'], function() {
+        Route::get('/all', 'SubscriptionController@getSubsNotSubscribed');
+    });
 });
