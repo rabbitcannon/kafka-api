@@ -212,13 +212,11 @@
 					}).then(() => {
 					    Toastr.success("<font-awesome-icon :icon='checkIcon' /> Subscription saved.");
 						$('form#add-sub-form').trigger('reset');
+                        subButton.html('Subscribe');
+                        location.reload();
 					}).catch((error) => {
 						console.log(error);
 					});
-
-                    subButton.html('Subscribe');
-                    location.reload();
-                    // this.$refs.updateSubs.getSubscriptions();
                 }
 			},
             resetForm() {
