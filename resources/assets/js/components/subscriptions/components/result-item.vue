@@ -296,7 +296,7 @@
                 Axios.post('/subscriptions/delete/' + id).then(() => {
                     Toastr.success("<font-awesome-icon :icon='checkIcon' /> Subscription has been deleted.");
                     this.modalShow = false;
-                    location.reload();
+                    // location.reload();
                 }).catch((error) => {
                     Toastr.error("<font-awesome-icon :icon='warningIcon' />" + error + ".");
                 });

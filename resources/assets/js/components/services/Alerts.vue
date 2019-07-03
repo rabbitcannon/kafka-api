@@ -1,6 +1,6 @@
 <template>
     <div>
-        <subscription-list ref="updateSubs"></subscription-list>
+        <subscription-list ref="updateSubs" v-on:get-subs="getSubscriptions()"></subscription-list>
 
         <form id="add-sub-form" v-on:submit.prevent="addSubscription()" action="/subscriptions/create" method="post">
             <div class="container --section">
@@ -93,7 +93,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="float-right">
-                            <button type="submit" class="btn btn-primary btn-sm" id="subscribe-btn">Subscribe</button>
+                            <button type="submit" class="btn btn-primary btn-sm" v-on:click="$emit('get-subs')" id="subscribe-btn">Subscribe</button>
                             <button type="reset" class="btn btn-secondary btn-sm">Reset</button>
                         </div>
                     </div>
@@ -213,7 +213,7 @@
 					    Toastr.success("<font-awesome-icon :icon='checkIcon' /> Subscription saved.");
 						$('form#add-sub-form').trigger('reset');
                         subButton.html('Subscribe');
-                        location.reload();
+                        // location.reload();
 					}).catch((error) => {
 						console.log(error);
 					});
@@ -247,7 +247,7 @@
                     this.alert_frequencies = alertFrequencyResults.data.data;
                     this.loading = false;
                 }));
-            }
+            },
         },
 
         created() {
