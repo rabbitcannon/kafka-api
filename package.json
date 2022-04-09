@@ -23,7 +23,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free-solid": "^5.0.13",
         "@fortawesome/vue-fontawesome": "0.0.23",
-        "moment": "^2.22.2",
+        "moment": "^2.29.2",
         "toastr": "^2.1.4"
     }
 }
